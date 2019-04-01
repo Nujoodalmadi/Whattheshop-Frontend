@@ -1,11 +1,28 @@
 import React, { Component } from "react";
 
-import "./App.css";
+// Redux
+import { connect } from "react-redux";
+import * as actionCreators from "./store/actions";
 
 class App extends Component {
+  componentDidMount() {
+    this.props.fetchProducts();
+  }
   render() {
-    return <div className="App" />;
+    return (
+      <div>
+        <div>Welcome to Spill The Tea</div>
+      </div>
+    );
   }
 }
 
-export default App;
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchProducts: () => dispatch(actionCreators.fetchProducts())
+  };
+};
+export default connect(
+  null,
+  mapDispatchToProps
+)(App);
