@@ -65,12 +65,14 @@ class Index extends Component {
                 <UncontrolledDropdown nav inNavbar>
                   <DropdownToggle nav caret>
                     <i
-                      className="far fa-user p-2"
+                      className="far fa-user p-2 mt-1"
                       style={{ color: "rgb(155, 166, 87)" }}
                     />
                   </DropdownToggle>
                   <DropdownMenu right>
-                    <DropdownItem>My Profile</DropdownItem>
+                    <DropdownItem>
+                      <Link to="/profile">My Profile</Link>
+                    </DropdownItem>
                     <DropdownItem>My Orders</DropdownItem>
 
                     <DropdownItem onClick={this.props.logout}>
