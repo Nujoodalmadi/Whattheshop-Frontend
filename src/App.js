@@ -9,10 +9,6 @@ import NavBar from "./Components/NavBar";
 import Register from "./Components/authentication/Register";
 import Login from "./Components/authentication/Login";
 
-// Components
-import Navbar from "./components/Navbar";
-import Register from "./components/Authentication/Register";
-
 class App extends Component {
   componentDidMount() {
     this.props.fetchProducts();
