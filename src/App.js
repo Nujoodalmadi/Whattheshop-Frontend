@@ -7,6 +7,7 @@ import * as actionCreators from "./store/actions";
 // Components
 import Navbar from "./components/Navbar";
 import Register from "./components/Authentication/Register";
+import ProductList from "./components/ProductsList";
 
 class App extends Component {
   componentDidMount() {
@@ -16,6 +17,7 @@ class App extends Component {
     return (
       <div className="content-wrapper">
         <Navbar />
+        <ProductList />
         {/* <Register /> */}
 
         <div>
