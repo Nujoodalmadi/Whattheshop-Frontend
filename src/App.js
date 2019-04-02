@@ -5,9 +5,9 @@ import { Switch, Route } from "react-router-dom";
 // Redux
 import { connect } from "react-redux";
 import * as actionCreators from "./store/actions";
-import NavBar from "./Components/NavBar";
-import Register from "./Components/authentication/Register";
-import Login from "./Components/authentication/Login";
+import NavBar from "./Components/Navbar";
+import Register from "./Components/Authentication/Register";
+import Login from "./Components/Authentication/Login";
 
 class App extends Component {
   componentDidMount() {
