@@ -1,8 +1,7 @@
-export {
-  fetchProductDetail,
-  addProduct,
-  updateProduct,
-  deleteProduct
-} from "./product";
+export { fetchProductDetail } from "./product";
 
 export { fetchProducts } from "./products";
+
+// addProduct,
+//   updateProduct,
+//   deleteProduct
