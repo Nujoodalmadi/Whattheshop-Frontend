@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+import Register from "./Components/authentication/Register";
 // Redux
 import { connect } from "react-redux";
 import * as actionCreators from "./store/actions";
@@ -10,9 +11,14 @@ class App extends Component {
   }
   render() {
     return (
+      <div className="content-wrapper">
+        <Register />
+   
       <div>
         <div>Welcome to Spill The Tea</div>
       </div>
+      </div>
+     
     );
   }
 }
