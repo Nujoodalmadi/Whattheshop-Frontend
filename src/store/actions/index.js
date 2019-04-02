@@ -1,8 +1,8 @@
 export {
   fetchProductDetail,
-  Add_product,
-  Update_product,
-  Delete_product
+  addProduct,
+  updateProduct,
+  deleteProduct
 } from "./product";
 
 export { fetchProducts } from "./products";
