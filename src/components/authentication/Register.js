@@ -9,17 +9,17 @@ class Register extends Component {
     password: ""
   };
 
-  changeHandler = e => {
+  handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
-  submitHandler = e => {
+  handleSubmit = e => {
     e.preventDefault();
     this.props.register(this.state, this.props.history);
   };
 
   render() {
     return (
-      <form onSubmit={this.submitHandler}>
+      <form onSubmit={this.handleSubmit}>
         <div className="form-group">
           <label>Username</label>
           <input
@@ -27,7 +27,7 @@ class Register extends Component {
             type="text"
             className="form-control"
             placeholder="Enter username"
-            onChange={this.changeHandler}
+            onChange={this.handleChange}
           />
         </div>
         <div className="form-group">
@@ -38,7 +38,7 @@ class Register extends Component {
             className="form-control"
             id="exampleInputPassword1"
             placeholder="Password"
-            onChange={this.changeHandler}
+            onChange={this.handleChange}
           />
         </div>
 

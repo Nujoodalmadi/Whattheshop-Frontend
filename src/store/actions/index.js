@@ -8,7 +8,7 @@ export {
   Add_product,
   Update_product,
   Delete_product
-} from "./product";
+} from "./productActions";
 
 
-export { fetchProducts } from "./products";
+export { fetchProducts } from "./productsActions";
