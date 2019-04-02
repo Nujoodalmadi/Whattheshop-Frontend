@@ -18,26 +18,31 @@ class Login extends Component {
     this.props.login(this.state, this.props.history);
   };
 
+  changeHandler = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
   render() {
     return (
       <form onSubmit={this.submitHandler}>
         <div className="form-group">
-          <label for="exampleInputEmail1">Username</label>
+          <label>Username</label>
           <input
+            name="username"
             type="text"
             className="form-control"
             placeholder="Enter username"
-            onChange={username => this.setState({ username: username })}
+            onChange={this.changeHandler}
           />
         </div>
         <div className="form-group">
-          <label for="exampleInputPassword1">Password</label>
+          <label>Password</label>
           <input
+            name="password"
             type="password"
             className="form-control"
             id="exampleInputPassword1"
             placeholder="Password"
-            onChange={password => this.setState({ password: password })}
+            onChange={this.changeHandler}
           />
         </div>
 

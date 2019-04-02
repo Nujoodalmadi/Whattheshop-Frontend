@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-// import NavBar from "./components/Navigation/NavBar";
-import Register from "./components/authentication/Register";
-import "./App.css";
+
+import Register from "./Components/authentication/Register";
 
 class App extends Component {
   render() {

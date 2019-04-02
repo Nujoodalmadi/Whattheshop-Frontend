@@ -35,6 +35,7 @@ export const checkForExpiredToken = () => {
 };
 
 export const login = (userData, history) => {
+  console.log(userData);
   return async dispatch => {
     try {
       let response = await axios.post(
@@ -53,17 +54,27 @@ export const login = (userData, history) => {
 };
 
 export const signup = (userData, history) => {
+  // console.log(userData);
+  // return async dispatch => {
+  //   try {
+  //     let response = await axios.post(
+  //       "http://127.0.0.1:8000/api/register/",
+  //       userData
+  //     );
+  //     let user = response.data;
+  //     let decodeUser = jwt_decode(user.token);
+  //     setAuthToken(user.token);
+  //     dispatch(setCurrentUser(decodeUser));
+  //     // history.push("");
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
   return async dispatch => {
     try {
-      let response = await axios.post(
-        "http://127.0.0.1:8000/api/register/",
-        userData
-      );
-      let user = response.data;
-      let decodeUser = jwt_decode(user.token);
-      setAuthToken(user.token);
-      dispatch(setCurrentUser(decodeUser));
-      // history.push("");
+      await axios.post("http://127.0.0.1:8000/api/register/", userData);
+
+      dispatch(login(userData, history));
     } catch (error) {
       console.error(error);
     }
