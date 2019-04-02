@@ -1,5 +1,14 @@
+
 //Authentication
 export { login, logout, signup, checkForExpiredToken } from "./authActions";
-export { fetchProductDetail } from "./product";
+
+
+export {
+  fetchProductDetail,
+  Add_product,
+  Update_product,
+  Delete_product
+} from "./product";
+
 
 export { fetchProducts } from "./products";
