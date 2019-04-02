@@ -8,6 +8,7 @@ import * as actionCreators from "./store/actions";
 import NavBar from "./Components/Navbar";
 import Register from "./Components/Authentication/Register";
 import Login from "./Components/Authentication/Login";
+import Profile from "./Components/Profile";
 
 class App extends Component {
   componentDidMount() {
@@ -20,6 +21,7 @@ class App extends Component {
         <Switch>
           <Route path="/register" component={Register} />
           <Route path="/login" component={Login} />
+          <Route path="/profile" component={Profile} />
         </Switch>
       </div>
     );
