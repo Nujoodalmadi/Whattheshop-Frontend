@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 
-
 import "./App.css";
 import NavBar from "./Components/NavBar";
 import Profile from "./Components/Profile";
@@ -10,21 +9,18 @@ import Register from "./Components/authentication/Register";
 import { connect } from "react-redux";
 import * as actionCreators from "./store/actions";
 
-
 class App extends Component {
   componentDidMount() {
     this.props.fetchProducts();
   }
   render() {
     return (
-
       <div>
         <div className="App" />
         <NavBar />
         <Profile />
-      <Register />
+        <Register />
       </div>
-
     );
   }
 }
