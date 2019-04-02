@@ -1,7 +1,11 @@
-export { fetchProductDetail } from "./product";
+//Authentication
+export { login, logout, signup, checkForExpiredToken } from "./authActions";
 
-export { fetchProducts } from "./products";
+export {
+  fetchProductDetail,
+  addProduct,
+  updateProduct,
+  deleteProduct
+} from "./productActions";
 
-// addProduct,
-//   updateProduct,
-//   deleteProduct
+export { fetchProducts } from "./productsActions";
