@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 
-import "./App.css";
-import NavBar from "./Components/NavBar";
-import Profile from "./Components/Profile";
-
-import Register from "./Components/authentication/Register";
+import Register from "./components/authentication/Register";
 // Redux
 import { connect } from "react-redux";
 import * as actionCreators from "./store/actions";
@@ -15,11 +11,12 @@ class App extends Component {
   }
   render() {
     return (
-      <div>
-        <div className="App" />
-        <NavBar />
-        <Profile />
+      <div className="content-wrapper">
         <Register />
+
+        <div>
+          <div>Welcome to Spill The Tea</div>
+        </div>
       </div>
     );
   }
