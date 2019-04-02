@@ -1,4 +1,7 @@
-import React from "react";
+import React, { Component } from "react";
+import * as actionCreators from "../../store/actions/index";
+
+import { Link } from "react-router-dom";
 import {
   Collapse,
   Navbar,
@@ -6,14 +9,15 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
+  // NavLink,
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
   DropdownItem
 } from "reactstrap";
+import { connect } from "react-redux";
 
-export default class index extends React.Component {
+class Index extends Component {
   constructor(props) {
     super(props);
 
@@ -44,31 +48,50 @@ export default class index extends React.Component {
           <i className="fas fa-leaf" style={{ color: "rgb(155, 166, 87)" }} />
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto" navbar>
-              <NavItem>
-                <NavLink href="/components/">
-                  Cart{" "}
-                  <i
-                    className="fas fa-shopping-cart"
-                    style={{ color: "rgb(155, 166, 87)" }}
-                  />
-                </NavLink>
+            <Nav className="navbar-nav ml-auto" navbar>
+              {/* here */}
+
+              <NavItem className="ml-auto p-2">
+                {/* <NavLink to="/components/"> */}
+
+                <i
+                  className="fas fa-shopping-cart p-2 mt-1"
+                  style={{ color: "rgb(155, 166, 87)" }}
+                />
+                {/* </NavLink> */}
               </NavItem>
 
-              <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
-                  <i
-                    className="far fa-user"
-                    style={{ color: "rgb(155, 166, 87)" }}
-                  />
-                </DropdownToggle>
-                <DropdownMenu right>
-                  <DropdownItem>My Profile</DropdownItem>
-                  <DropdownItem>My Orders</DropdownItem>
+              {this.props.user ? (
+                <UncontrolledDropdown nav inNavbar>
+                  <DropdownToggle nav caret>
+                    <i
+                      className="far fa-user p-2"
+                      style={{ color: "rgb(155, 166, 87)" }}
+                    />
+                  </DropdownToggle>
+                  <DropdownMenu right>
+                    <DropdownItem>My Profile</DropdownItem>
+                    <DropdownItem>My Orders</DropdownItem>
 
-                  <DropdownItem>Log Out</DropdownItem>
-                </DropdownMenu>
-              </UncontrolledDropdown>
+                    <DropdownItem onClick={this.props.logout}>
+                      Log Out
+                    </DropdownItem>
+                  </DropdownMenu>
+                </UncontrolledDropdown>
+              ) : (
+                <div className="d-flex flex-row">
+                  <div className="p-2">
+                    <Link to="/login" className="nav-link">
+                      Login
+                    </Link>
+                  </div>
+                  <div className="p-2">
+                    <Link to="/register" className="nav-link">
+                      Signup
+                    </Link>
+                  </div>
+                </div>
+              )}
             </Nav>
           </Collapse>
         </Navbar>
@@ -76,3 +99,17 @@ export default class index extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    user: state.authReducer.user
+  };
+};
+const mapDispatchToProps = dispatch => ({
+  logout: () => dispatch(actionCreators.logout())
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Index);
