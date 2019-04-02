@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 
-import Register from "./components/Authentication/Register";
 // Redux
 import { connect } from "react-redux";
 import * as actionCreators from "./store/actions";
 
+// Components
 import Navbar from "./components/Navbar";
+import Register from "./components/Authentication/Register";
 
 class App extends Component {
   componentDidMount() {
