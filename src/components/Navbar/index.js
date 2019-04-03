@@ -43,7 +43,9 @@ class Index extends Component {
               fontWeight: "bold"
             }}
           >
+
             Saudi Tea Shop
+
           </NavbarBrand>
           <i className="fas fa-leaf" style={{ color: "rgb(155, 166, 87)" }} />
           <NavbarToggler onClick={this.toggle} />

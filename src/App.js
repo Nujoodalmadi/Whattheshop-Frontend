@@ -5,11 +5,14 @@ import { Switch, Route } from "react-router-dom";
 // Redux
 import { connect } from "react-redux";
 import * as actionCreators from "./store/actions";
+
 import NavBar from "./components/Navbar";
 import Register from "./components/Authentication/Register";
 import Login from "./components/Authentication/Login";
 import Profile from "./components/Profile";
+
 import CartPage from "./components/Cart/CartPage";
+
 
 class App extends Component {
   componentDidMount() {
@@ -25,6 +28,10 @@ class App extends Component {
           <Route path="/profile" component={Profile} />
           <Route path="/cart" component={CartPage} />
         </Switch>
+
+        <div>
+          <div>Welcome to Spill The Tea</div>
+        </div>
       </div>
     );
   }
