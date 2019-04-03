@@ -1,4 +1,3 @@
-
 // Authentcation
 export const SET_CURRENT_USER = "SET_CURRENT_USER";
 export const LOGOUT_USER = "LOGOUT_USER";
@@ -11,3 +10,4 @@ export const ADD_PRODUCT = "ADD_PRODUCT";
 export const UPDATE_PRODUCT = "UPDATE_PRODUCT";
 export const DELETE_PRODUCT = "DELETE_PRODUCT";
 
+export const FETCH_CATEGORIES = "FETCH_CATEGORIES";
