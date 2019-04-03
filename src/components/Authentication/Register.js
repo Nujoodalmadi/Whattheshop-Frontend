@@ -19,33 +19,46 @@ class Register extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <div className="form-group">
-          <label>Username</label>
-          <input
-            name="username"
-            type="text"
-            className="form-control"
-            placeholder="Enter username"
-            onChange={this.handleChange}
-          />
-        </div>
-        <div className="form-group">
-          <label>Password</label>
-          <input
-            name="password"
-            type="password"
-            className="form-control"
-            id="exampleInputPassword1"
-            placeholder="Password"
-            onChange={this.handleChange}
-          />
-        </div>
+      <div
+        className="d-md-flex justify-content-center w-100 p-12  "
+        style={{ height: "500px" }}
+      >
+        <form
+          className="  align-self-baseline mt-5  "
+          style={{ width: "500px" }}
+          onSubmit={this.handleSubmit}
+        >
+          <div className="form-group">
+            <label>Username</label>
+            <input
+              name="username"
+              type="text"
+              className="form-control"
+              placeholder="Enter username"
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className="form-group">
+            <label>Password</label>
+            <input
+              name="password"
+              type="password"
+              className="form-control"
+              id="exampleInputPassword1"
+              placeholder="Password"
+              onChange={this.handleChange}
+            />
+          </div>
 
-        <button type="submit" className="btn btn-primary">
-          SignUp
-        </button>
-      </form>
+          <button
+            type="submit"
+            className="btn btn-light"
+            style={{ color: "grey" }}
+          >
+            Signup
+          </button>
+        </form>
+      </div>
     );
   }
 }
