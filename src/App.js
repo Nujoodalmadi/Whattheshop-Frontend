@@ -3,21 +3,16 @@ import React, { Component } from "react";
 // Redux
 import { connect } from "react-redux";
 import * as actionCreators from "./store/actions";
-import Category from "./Components/Category";
-import NavBar from "./Components/NavBar";
+import NavBar from "./components/NavBar";
 
 class App extends Component {
   componentDidMount() {
     this.props.fetchProducts();
-    // this.props.fetchCatogries();
   }
   render() {
     return (
       <div>
         <NavBar />
-        <Category />
-
-        <div>Welcome to Spill The Tea</div>
       </div>
     );
   }
@@ -25,8 +20,7 @@ class App extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchProducts: () => dispatch(actionCreators.fetchProducts()),
-    fetchCatogries: () => dispatch(actionCreators.fetchCatogries())
+    fetchProducts: () => dispatch(actionCreators.fetchProducts())
   };
 };
 export default connect(

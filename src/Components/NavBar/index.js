@@ -12,8 +12,11 @@ import {
   DropdownMenu,
   DropdownItem
 } from "reactstrap";
+import { connect } from "react-redux";
+import * as actionCreators from "../../store/actions";
+import CategoryRow from "../Category/CategoryRow";
 
-export default class index extends React.Component {
+class index extends React.Component {
   constructor(props) {
     super(props);
 
@@ -27,7 +30,15 @@ export default class index extends React.Component {
       isOpen: !this.state.isOpen
     });
   }
+  componentDidMount() {
+    this.props.fetchCatogries();
+  }
+
   render() {
+    const categoryRow = this.props.categories.map(category => (
+      <CategoryRow key={category.id} category={category} />
+    ));
+
     return (
       <div>
         <Navbar
@@ -55,7 +66,7 @@ export default class index extends React.Component {
                   Categories
                 </DropdownToggle>
                 <DropdownMenu right>
-                  <DropdownItem>My Profile</DropdownItem>
+                  {categoryRow}
                   <DropdownItem>My Orders</DropdownItem>
 
                   <DropdownItem>Log Out</DropdownItem>
@@ -97,3 +108,15 @@ export default class index extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  categories: state.products.categories
+});
+const mapDispatchToProps = dispatch => ({
+  fetchCatogries: () => dispatch(actionCreators.fetchCatogries())
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(index);
