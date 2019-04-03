@@ -5,10 +5,11 @@ import { Switch, Route } from "react-router-dom";
 // Redux
 import { connect } from "react-redux";
 import * as actionCreators from "./store/actions";
-import NavBar from "./Components/Navbar";
-import Register from "./Components/Authentication/Register";
-import Login from "./Components/Authentication/Login";
-import Profile from "./Components/Profile";
+import NavBar from "./components/Navbar";
+import Register from "./components/Authentication/Register";
+import Login from "./components/Authentication/Login";
+import Profile from "./components/Profile";
+import CartPage from "./components/Cart/CartPage";
 
 class App extends Component {
   componentDidMount() {
@@ -22,6 +23,7 @@ class App extends Component {
           <Route path="/register" component={Register} />
           <Route path="/login" component={Login} />
           <Route path="/profile" component={Profile} />
+          <Route path="/cart" component={CartPage} />
         </Switch>
       </div>
     );

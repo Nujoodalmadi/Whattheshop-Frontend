@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import * as actionCreators from "../../store/actions/index";
 
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import {
   Collapse,
   Navbar,
@@ -43,22 +43,19 @@ class Index extends Component {
               fontWeight: "bold"
             }}
           >
-            Spill The Tea
+            Saudi Tea Shop
           </NavbarBrand>
           <i className="fas fa-leaf" style={{ color: "rgb(155, 166, 87)" }} />
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="navbar-nav ml-auto" navbar>
-              {/* here */}
-
               <NavItem className="ml-auto p-2">
-                {/* <NavLink to="/components/"> */}
-
-                <i
-                  className="fas fa-shopping-cart p-2 mt-1"
-                  style={{ color: "rgb(155, 166, 87)" }}
-                />
-                {/* </NavLink> */}
+                <NavLink to="/cart">
+                  <i
+                    className="fas fa-shopping-cart p-2 mt-1"
+                    style={{ color: "rgb(155, 166, 87)" }}
+                  />
+                </NavLink>
               </NavItem>
 
               {this.props.user ? (
