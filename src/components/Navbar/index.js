@@ -43,7 +43,7 @@ class Index extends Component {
               fontWeight: "bold"
             }}
           >
-            Spill The Tea
+            Saudi Tea
           </NavbarBrand>
           <i className="fas fa-leaf" style={{ color: "rgb(155, 166, 87)" }} />
           <NavbarToggler onClick={this.toggle} />

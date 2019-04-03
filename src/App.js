@@ -6,11 +6,10 @@ import { Switch, Route } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actionCreators from "./store/actions";
 
-import NavBar from "./Components/Navbar";
-import Register from "./Components/Authentication/Register";
-import Login from "./Components/Authentication/Login";
-import Profile from "./Components/Profile";
-
+import NavBar from "./components/Navbar";
+import Register from "./components/Authentication/Register";
+import Login from "./components/Authentication/Login";
+import Profile from "./components/Profile";
 
 class App extends Component {
   componentDidMount() {
@@ -19,12 +18,6 @@ class App extends Component {
   render() {
     return (
       <div className="content-wrapper">
-
-
-        <div>
-          <div>Welcome to Spill The Tea</div>
-        </div>
-
         <NavBar />
         <Switch>
           <Route path="/register" component={Register} />
@@ -32,6 +25,9 @@ class App extends Component {
           <Route path="/profile" component={Profile} />
         </Switch>
 
+        <div>
+          <div>Welcome to Spill The Tea</div>
+        </div>
       </div>
     );
   }
