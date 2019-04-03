@@ -14,7 +14,6 @@ import ProductList from "./components/ProductsList";
 
 import CartPage from "./components/Cart/CartPage";
 
-
 class App extends Component {
   componentDidMount() {
     this.props.fetchProducts();
@@ -30,10 +29,6 @@ class App extends Component {
           <Route path="/list" component={ProductList} />
           <Route path="/cart" component={CartPage} />
         </Switch>
-
-        <div>
-          <div>Welcome to Spill The Tea</div>
-        </div>
       </div>
     );
   }
