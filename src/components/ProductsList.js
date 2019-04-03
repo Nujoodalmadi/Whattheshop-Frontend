@@ -16,8 +16,8 @@ class ProductList extends Component {
 
     console.log(productCards);
     return (
-      <div className="container my-4">
-        <div className="row">{productCards}</div>
+      <div className="container my-4 ">
+        <div className="row justify-content-md-center">{productCards}</div>
       </div>
     );
   }
