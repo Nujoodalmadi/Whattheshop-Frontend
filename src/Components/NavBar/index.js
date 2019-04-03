@@ -30,7 +30,12 @@ export default class index extends React.Component {
   render() {
     return (
       <div>
-        <Navbar color="light" light expand="md">
+        <Navbar
+          color="light"
+          light
+          expand="md"
+          className="navbar navbar-default navbar-static-top"
+        >
           <NavbarBrand
             href="/"
             style={{
@@ -39,9 +44,25 @@ export default class index extends React.Component {
               fontWeight: "bold"
             }}
           >
-            Spill The Tea
+            Spill The Tea{" "}
+            <i className="fas fa-leaf" style={{ color: "rgb(155, 166, 87)" }} />
           </NavbarBrand>
-          <i className="fas fa-leaf" style={{ color: "rgb(155, 166, 87)" }} />
+
+          <Collapse isOpen={this.state.isOpen} navbar>
+            <Nav className="d-flex flex-row" navbar>
+              <UncontrolledDropdown nav inNavbar>
+                <DropdownToggle nav caret>
+                  Categories
+                </DropdownToggle>
+                <DropdownMenu right>
+                  <DropdownItem>My Profile</DropdownItem>
+                  <DropdownItem>My Orders</DropdownItem>
+
+                  <DropdownItem>Log Out</DropdownItem>
+                </DropdownMenu>
+              </UncontrolledDropdown>
+            </Nav>
+          </Collapse>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>

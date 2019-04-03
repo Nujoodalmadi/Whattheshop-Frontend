@@ -1,22 +1,23 @@
 import React, { Component } from "react";
 
-import Register from "./components/authentication/Register";
 // Redux
 import { connect } from "react-redux";
 import * as actionCreators from "./store/actions";
+import Category from "./Components/Category";
+import NavBar from "./Components/NavBar";
 
 class App extends Component {
   componentDidMount() {
     this.props.fetchProducts();
+    // this.props.fetchCatogries();
   }
   render() {
     return (
-      <div className="content-wrapper">
-        <Register />
+      <div>
+        <NavBar />
+        <Category />
 
-        <div>
-          <div>Welcome to Spill The Tea</div>
-        </div>
+        <div>Welcome to Spill The Tea</div>
       </div>
     );
   }
@@ -24,7 +25,8 @@ class App extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchProducts: () => dispatch(actionCreators.fetchProducts())
+    fetchProducts: () => dispatch(actionCreators.fetchProducts()),
+    fetchCatogries: () => dispatch(actionCreators.fetchCatogries())
   };
 };
 export default connect(
