@@ -12,6 +12,9 @@ import Login from "./components/Authentication/Login";
 import Profile from "./components/Profile";
 import ProductList from "./components/ProductsList";
 
+import CartPage from "./components/Cart/CartPage";
+
+
 class App extends Component {
   componentDidMount() {
     this.props.fetchProducts();
@@ -25,6 +28,7 @@ class App extends Component {
           <Route path="/login" component={Login} />
           <Route path="/profile" component={Profile} />
           <Route path="/list" component={ProductList} />
+          <Route path="/cart" component={CartPage} />
         </Switch>
 
         <div>
