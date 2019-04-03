@@ -21,7 +21,7 @@ class CartRow extends Component {
           <div className="p-2 col-3" style={{ fontSize: "13px" }}>
             15SAR
           </div>
-          <div className="p-2 col-1" style={{ fontSize: "13px" }}>
+          <div className="p-2 col-2" style={{ fontSize: "13px" }}>
             5
           </div>
           <div className="p-2" style={{ fontSize: "13px" }}>

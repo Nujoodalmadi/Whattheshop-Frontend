@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, ListGroup, ListGroupItem } from "react-bootstrap";
+import { Card, ListGroup } from "react-bootstrap";
 import CartRow from "./CartRow";
 
 class CartPage extends Component {
@@ -21,9 +21,9 @@ class CartPage extends Component {
               style={{ fontSize: "12px", fontWeight: "bold" }}
               className="d-flex flex-row"
             >
-              <div className="p-2 col-5 ml-2">Item</div>
-              <div className="p-2 col-3 mr-2"> Price (each)</div>
-              <div className="p-2 col-1">Qty </div>
+              <div className="p-2 col-5 mr-2 ">Item</div>
+              <div className="p-2 col-3 mr-5 "> Price (each)</div>
+              <div className="p-2 col-1 mr-3">Qty </div>
               <div className="p-2">Subtotal</div>
             </ListGroup.Item>
 
