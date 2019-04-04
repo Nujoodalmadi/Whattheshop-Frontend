@@ -27,7 +27,7 @@ class App extends Component {
         <NavBar />
         <Switch>
           <Route path="/home" component={Home} />
-          <Route path="/products/detail/:productID" component={ProductDetail} />
+          <Route path="/products/:productID" component={ProductDetail} />
           <Route path="/register" component={Register} />
           <Route path="/login" component={Login} />
           <Route path="/profile" component={Profile} />

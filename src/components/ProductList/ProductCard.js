@@ -2,13 +2,22 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
+// Redux
+import { connect } from "react-redux";
+
+// Action Functions
+import * as asctionCreators from "../../store/actions";
+
 class ProductCard extends Component {
   render() {
     const product = this.props.product;
 
     return (
-      <Link to={`/products/detail/${product.id}`}>
-        <div className="card mx-3">
+      <Link to={`/products/${product.id}`}>
+        <div
+          className="card mx-3"
+          onClick={() => this.props.getProduct(product)}
+        >
           <div className="card border-light mb-3" style={{ maxWidth: "18rem" }}>
             <img src={product.img} className="card-img-top" alt="..." />
             <div className="card-body">
@@ -31,4 +40,11 @@ class ProductCard extends Component {
   }
 }
 
-export default ProductCard;
+const mapDispatchToProps = dispatch => ({
+  getProduct: product => dispatch(asctionCreators.currentProduct(product))
+});
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(ProductCard);
