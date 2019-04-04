@@ -1,7 +1,8 @@
 import * as actionTypes from "../actions/actionTypes";
 
 const initialState = {
-  products: []
+  products: [],
+  categories: []
 };
 
 const reducer = (state = initialState, action) => {
@@ -10,6 +11,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         products: action.payload
+      };
+    case actionTypes.FETCH_CATEGORIES:
+      return {
+        ...state,
+        categories: action.payload
       };
     default:
       return state;

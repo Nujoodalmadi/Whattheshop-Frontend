@@ -16,6 +16,7 @@ import {
   DropdownItem
 } from "reactstrap";
 import { connect } from "react-redux";
+import CategoryRow from "../Category/CategoryRow";
 
 class Index extends Component {
   constructor(props) {
@@ -31,10 +32,19 @@ class Index extends Component {
       isOpen: !this.state.isOpen
     });
   }
+
+  componentDidMount() {
+    this.props.fetchCatogries();
+  }
   render() {
+    const categoryRow = this.props.categories.map(category => (
+      <CategoryRow key={category.id} category={category} />
+    ));
+
     return (
       <div>
         <Navbar color="light" light expand="md">
+
           <NavbarBrand>
             <NavLink
               style={{
@@ -46,10 +56,24 @@ class Index extends Component {
             >
               Saudi Tea Shop
             </NavLink>
-          </NavbarBrand>
+
+        
           <i className="fas fa-leaf" style={{ color: "rgb(155, 166, 87)" }} />
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
+            <Nav className="d-flex flex-row" navbar>
+              <UncontrolledDropdown nav inNavbar>
+                <DropdownToggle nav caret>
+                  Categories
+                </DropdownToggle>
+                <DropdownMenu right>
+                  {categoryRow}
+                  <DropdownItem>My Orders</DropdownItem>
+
+                  <DropdownItem>Log Out</DropdownItem>
+                </DropdownMenu>
+              </UncontrolledDropdown>
+            </Nav>
             <Nav className="navbar-nav ml-auto" navbar>
               <NavItem className="ml-auto p-2">
                 <NavLink to="/cart">
@@ -103,11 +127,13 @@ class Index extends Component {
 
 const mapStateToProps = state => {
   return {
-    user: state.authReducer.user
+    user: state.authReducer.user,
+    categories: state.products.categories
   };
 };
 const mapDispatchToProps = dispatch => ({
-  logout: () => dispatch(actionCreators.logout())
+  logout: () => dispatch(actionCreators.logout()),
+  fetchCatogries: () => dispatch(actionCreators.fetchCatogries())
 });
 
 export default connect(
