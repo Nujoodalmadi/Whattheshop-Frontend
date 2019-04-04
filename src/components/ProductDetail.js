@@ -137,26 +137,3 @@ export default connect(
   mapDispatchToProps
 )(ProductDetail);
 
-//   <div>
-//     <div class="alert alert-light" role="alert">
-//       <h3>{product.name}</h3>
-//       <h3>{product.price}</h3>
-//       <h3>{product.description}</h3>
-//       <h3>{product.stock}</h3>
-//       <img
-//         src={product.img}
-//         className="img-thumbnail img-fluid"
-//         alt={product.name}
-//       />
-//       <img
-//         src={product.img2}
-//         className="img-thumbnail img-fluid"
-//         alt={product.name}
-//       />
-//       <img
-//         src={product.img3}
-//         className="img-thumbnail img-fluid"
-//         alt={product.name}
-//       />
-//     </div>
-//   </div>

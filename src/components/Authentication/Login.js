@@ -80,8 +80,7 @@ const mapDispatchToProps = dispatch => ({
   login: (userData, history) =>
     dispatch(actionCreators.login(userData, history)),
 
-  checkForToken: history =>
-    dispatch(actionCreators.checkForExpiredToken(history))
+  checkForToken: history => dispatch(actionCreators.checkForExpiredToken())
 });
 
 export default connect(
