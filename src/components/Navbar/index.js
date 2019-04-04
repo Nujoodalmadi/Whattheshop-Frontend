@@ -9,19 +9,19 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  // NavLink,
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
   DropdownItem
 } from "reactstrap";
 import { connect } from "react-redux";
-import CategoryRow from "../Category/CategoryRow";
 
 class Index extends Component {
   constructor(props) {
     super(props);
-
+    this.state = {
+      category: null
+    };
     this.toggle = this.toggle.bind(this);
     this.state = {
       isOpen: false
@@ -36,9 +36,17 @@ class Index extends Component {
   componentDidMount() {
     this.props.fetchCatogries();
   }
+
   render() {
     const categoryRow = this.props.categories.map(category => (
-      <CategoryRow key={category.id} category={category} />
+      <Link
+        className="dropdown-item"
+        to={`/list/${category.title.replace(/\s/g, "").toLowerCase()}`}
+        onClick={() => this.setState({ category: category.title })}
+        key={category.id}
+      >
+        {category.title}
+      </Link>
     ));
 
     return (
@@ -58,17 +66,34 @@ class Index extends Component {
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="d-flex flex-row" navbar>
-              <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
-                  Categories
-                </DropdownToggle>
-                <DropdownMenu right>
+              <div className="dropdown ml-2">
+                <button
+                  className="btn btn-light dropdown-toggle"
+                  type="button"
+                  id="dropdownMenuButton"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  style={{ color: "rgb(155, 166, 87)" }}
+                >
+                  {this.state.category
+                    ? this.state.category
+                    : "Choose a Category"}
+                </button>
+                <div
+                  className="dropdown-menu"
+                  aria-labelledby="dropdownMenuButton"
+                >
+                  <Link
+                    className="dropdown-item"
+                    to={`/list`}
+                    onClick={() => this.setState({ category: "All" })}
+                  >
+                    All
+                  </Link>
                   {categoryRow}
-                  <DropdownItem>My Orders</DropdownItem>
-
-                  <DropdownItem>Log Out</DropdownItem>
-                </DropdownMenu>
-              </UncontrolledDropdown>
+                </div>
+              </div>
             </Nav>
             <Nav className="navbar-nav ml-auto" navbar>
               <NavItem className="ml-auto p-2">
@@ -124,6 +149,7 @@ class Index extends Component {
 const mapStateToProps = state => {
   return {
     user: state.authReducer.user,
+    products: state.products.products,
     categories: state.products.categories
   };
 };

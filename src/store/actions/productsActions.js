@@ -35,3 +35,10 @@ export const fetchCatogries = () => {
     }
   };
 };
+
+export const filterCategories = category => {
+  return {
+    type: actionTypes.FILTER_CATEGORIES,
+    payload: category
+  };
+};

@@ -1,84 +1,47 @@
-import React from "react";
-import {
-  Card,
-  CardText,
-  CardTitle,
-  CardSubtitle,
-  Button,
-  Row,
-  Col
-} from "reactstrap";
+import React, { Component } from "react";
+import { Card, ListGroup } from "react-bootstrap";
+import OrdersHistory from "./OrdersHistory";
 
-const index = props => {
-  return (
-    <div className="container">
-      <Row>
-        <Col style={{ marginTop: "20px", width: "400px" }}>
-          <Card>
-            <Card
-              style={{ backgroundColor: "rgb(248, 249, 250)", height: "800px" }}
+class CartPage extends Component {
+  render() {
+    return (
+      <div
+        className=" justify-content-center mt-5"
+        align="center"
+        style={{ minWidth: "960px" }}
+      >
+        <Card className="w-75">
+          <Card.Body style={{ textAlign: "center", height: "75px" }}>
+            <Card.Title className="text-muted" style={{ fontSize: "25px" }}>
+              Previous Orders
+            </Card.Title>
+          </Card.Body>
+          <ListGroup className="list-group-flush">
+            <ListGroup.Item
+              style={{ fontSize: "12px", fontWeight: "bold" }}
+              className="d-flex flex-row"
             >
-              <CardTitle
-                style={{
-                  fontWeight: "bold",
-                  paddingLeft: "20px",
-                  paddingTop: "20px"
-                }}
-              >
-                Modi Alotaibi
-              </CardTitle>
-              <CardSubtitle style={{ paddingLeft: "20px" }}>
-                Address Information: <br /> Riyadh - Diyrab District <br /> 7598
-                - 14972
-              </CardSubtitle>
-              <CardText style={{ paddingLeft: "20px" }}>
-                Billing Information: <br /> Bank Account
-              </CardText>
-              <Button
-                style={{
-                  backgroundColor: "rgb(155, 166, 87)",
-                  width: "90px",
-                  paddingLeft: "20px"
-                }}
-              >
-                Edit <i className="fas fa-user-edit" />
-              </Button>
-            </Card>
-          </Card>
-        </Col>
-        <Col style={{ marginTop: "20px", width: "400px" }}>
-          <Card>
-            <Card
-              style={{ backgroundColor: "rgb(248, 249, 250)", height: "800px" }}
-            >
-              <CardTitle
-                style={{
-                  fontWeight: "bold",
-                  textAlign: "center",
-                  paddingLeft: "20px",
-                  paddingTop: "20px"
-                }}
-              >
-                Orders History
-              </CardTitle>
-              <CardSubtitle style={{ paddingLeft: "20px" }}>
-                Address Information: <br /> Riyadh - Diyrab District <br /> 7598
-                - 14972
-              </CardSubtitle>
-              <CardText style={{ paddingLeft: "20px" }}>
-                Billing Information: <br /> Bank Account
-              </CardText>
-              <Button
-                style={{ backgroundColor: "rgb(155, 166, 87)", width: "90px" }}
-              >
-                Edit <i className="fas fa-user-edit" />
-              </Button>
-            </Card>
-          </Card>
-        </Col>
-      </Row>
-    </div>
-  );
-};
+              <div className="p-2 col-5 mr-2 ">Item</div>
+              <div className="p-2 col-3 mr-5 "> Price (each)</div>
+              <div className="p-2 col-1 mr-3">Qty </div>
+              <div className="p-2">Subtotal</div>
+            </ListGroup.Item>
 
-export default index;
+            <OrdersHistory />
+          </ListGroup>
+          <div className="d-flex justify-content-center">
+            <button
+              type="submit"
+              className="btn btn-light "
+              style={{ color: "grey", margin: "10px" }}
+            >
+              Checkout
+            </button>
+          </div>
+        </Card>
+      </div>
+    );
+  }
+}
+
+export default CartPage;

@@ -8,13 +8,25 @@ import ProductCard from "./ProductCard";
 
 class ProductList extends Component {
   render() {
-    const products = this.props.products;
+    let categoryName = this.props.match.params.category;
+    let productCards = [];
+    if (categoryName) {
+      let products = this.props.products;
+      productCards = products
+        .filter(product =>
+          product.categories.find(
+            category =>
+              category.title.replace(/\s/g, "").toLowerCase() === categoryName
+          )
+        )
+        .map(product => <ProductCard key={product.name} product={product} />);
+    } else {
+      let products = this.props.products;
+      productCards = products.map(product => (
+        <ProductCard key={product.name} product={product} />
+      ));
+    }
 
-    const productCards = products.map(product => (
-      <ProductCard key={product.name} product={product} />
-    ));
-
-    console.log(productCards);
     return (
       <div className="container my-4 ">
         <div className="row justify-content-md-center">{productCards}</div>

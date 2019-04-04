@@ -8,4 +8,8 @@ export {
   deleteProduct
 } from "./productActions";
 
-export { fetchProducts, fetchCatogries } from "./productsActions";
+export {
+  fetchProducts,
+  fetchCatogries,
+  filterCategories
+} from "./productsActions";
