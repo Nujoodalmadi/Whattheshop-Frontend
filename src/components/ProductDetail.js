@@ -101,14 +101,14 @@ class ProductDetail extends Component {
             </div>
             <div class="col-md-5">
               <div class="card-body">
-                <h5 class="card-title">Card title</h5>
+                <h5 class="card-title">{product.name}</h5>
                 <p class="card-text">
-                  This is a wider card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
+                  <p> {product.price}</p>
+                  <p> {product.description}</p>
+                  <p>{product.stock}</p>
                 </p>
                 <p class="card-text">
-                  <small class="text-muted">Last updated 3 mins ago</small>
+                  <small class="text-muted">{product.stock}</small>
                 </p>
               </div>
             </div>
