@@ -1,15 +1,17 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class ProductCard extends Component {
   render() {
     const product = this.props.product;
 
     return (
-      <div className="card mx-3">
+      <Link to={`/products/${product.id}`}>
         <div className="card border-light mb-3" style={{ maxWidth: "18rem" }}>
           <img src={product.img} className="card-img-top" alt="..." />
           <div className="card-body">
             <h5 className="card-title">{product.name}</h5>
+
             <p className="card-text">
               Price: {product.price} SAR
               <footer className="blockquote-footer">
@@ -22,7 +24,7 @@ class ProductCard extends Component {
             </p>
           </div>
         </div>
-      </div>
+      </Link>
     );
   }
 }

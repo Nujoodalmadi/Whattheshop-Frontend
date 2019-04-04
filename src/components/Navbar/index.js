@@ -35,17 +35,17 @@ class Index extends Component {
     return (
       <div>
         <Navbar color="light" light expand="md">
-          <NavbarBrand
-            href="/"
-            style={{
-              fontFamily: "arial",
-              color: "rgb(89, 68, 51)",
-              fontWeight: "bold"
-            }}
-          >
-
-            Saudi Tea Shop
-
+          <NavbarBrand>
+            <NavLink
+              style={{
+                fontFamily: "Helvetica Neue",
+                color: "#778899",
+                fontSize: "25px"
+              }}
+              to="/home"
+            >
+              Saudi Tea Shop
+            </NavLink>
           </NavbarBrand>
           <i className="fas fa-leaf" style={{ color: "rgb(155, 166, 87)" }} />
           <NavbarToggler onClick={this.toggle} />
