@@ -1,11 +1,12 @@
-import * as actionTypes from "./actionTypes";
-
+// API Requests
 import axios from "axios";
+// ActionTypes
+import * as actionTypes from "./actionTypes";
 
 const instance = axios.create({
   baseURL: "http://127.0.0.1:8000"
 });
-
+// Not used yet!
 const setLoading = () => ({
   type: actionTypes.SET_PRODUCT_LOADING
 });
@@ -23,59 +24,6 @@ export const fetchProductDetail = productID => {
       });
     } catch (error) {
       console.error("Something went wrong with ", error);
-    }
-  };
-};
-
-export const addProduct = (newproduct, closeModal) => {
-  return async dispatch => {
-    try {
-      const res = await instance.post("/api/create/", newproduct);
-      const product = res.data;
-      dispatch({
-        type: actionTypes.ADD_PRODUCT,
-        payload: product
-      });
-
-      closeModal();
-    } catch (err) {
-      console.error("Your noob", err);
-    }
-  };
-};
-
-export const updateProduct = (productID, newproduct, closeModal) => {
-  return async dispatch => {
-    try {
-      const res = await instance.put(`/api/${productID}/update/`, newproduct);
-      const product = res.data;
-
-      dispatch({
-        type: actionTypes.UPDATE_PRODUCT,
-        payload: product
-      });
-
-      closeModal();
-    } catch (err) {
-      console.error("Your noob", err);
-    }
-  };
-};
-
-export const deleteProduct = (productID, closeModal) => {
-  return async dispatch => {
-    try {
-      const res = await instance.delete(`/api/${productID}/delete/`);
-      const product = res.data;
-
-      dispatch({
-        type: actionTypes.DELETE_PRODUCT,
-        payload: product
-      });
-
-      closeModal();
-    } catch (err) {
-      console.error("Your noob", err);
     }
   };
 };

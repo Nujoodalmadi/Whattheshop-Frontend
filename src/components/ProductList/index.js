@@ -1,8 +1,7 @@
+// React
 import React, { Component } from "react";
-
 // Redux
 import { connect } from "react-redux";
-
 // Components
 import ProductCard from "./ProductCard";
 

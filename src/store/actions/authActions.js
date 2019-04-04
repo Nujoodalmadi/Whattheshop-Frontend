@@ -1,6 +1,8 @@
+// API Requests
 import axios from "axios";
+// Decrypt Token
 import jwt_decode from "jwt-decode";
-
+// ActionTypes
 import * as actionTypes from "./actionTypes";
 
 const setAuthToken = token => {
@@ -54,22 +56,6 @@ export const login = (userData, history) => {
 };
 
 export const signup = (userData, history) => {
-  // console.log(userData);
-  // return async dispatch => {
-  //   try {
-  //     let response = await axios.post(
-  //       "http://127.0.0.1:8000/api/register/",
-  //       userData
-  //     );
-  //     let user = response.data;
-  //     let decodeUser = jwt_decode(user.token);
-  //     setAuthToken(user.token);
-  //     dispatch(setCurrentUser(decodeUser));
-  //     // history.push("");
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
   return async dispatch => {
     try {
       await axios.post("http://127.0.0.1:8000/api/register/", userData);

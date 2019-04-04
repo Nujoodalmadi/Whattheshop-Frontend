@@ -1,4 +1,5 @@
-import React from "react";
+// React
+import { React } from "react";
 import {
   Card,
   CardText,
@@ -9,7 +10,7 @@ import {
   Col
 } from "reactstrap";
 
-const index = props => {
+const Profile = props => {
   return (
     <div className="container">
       <Row>
@@ -81,4 +82,4 @@ const index = props => {
   );
 };
 
-export default index;
+export default Profile;

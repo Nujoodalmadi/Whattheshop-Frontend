@@ -1,8 +1,11 @@
+// React
 import React, { Component } from "react";
-import { connect } from "react-redux";
-// import { Link } from "react-router-dom";
-import * as actionCreators from "../../store/actions";
 import { Row, Col } from "reactstrap";
+
+// Action Functions
+import * as actionCreators from "../../store/actions";
+// Redux
+import { connect } from "react-redux";
 
 class Login extends Component {
   state = {
@@ -10,17 +13,9 @@ class Login extends Component {
     password: ""
   };
 
-  componentDidMount = () => {
-    this.props.checkForToken();
-  };
-
   handleSubmit = e => {
     e.preventDefault();
     this.props.login(this.state, this.props.history);
-    this.setState({
-      username: "",
-      password: ""
-    });
   };
 
   handleChange = e => {
@@ -78,9 +73,7 @@ class Login extends Component {
 
 const mapDispatchToProps = dispatch => ({
   login: (userData, history) =>
-    dispatch(actionCreators.login(userData, history)),
-
-  checkForToken: history => dispatch(actionCreators.checkForExpiredToken())
+    dispatch(actionCreators.login(userData, history))
 });
 
 export default connect(

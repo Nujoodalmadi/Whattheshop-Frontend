@@ -1,6 +1,9 @@
+// React
 import React, { Component } from "react";
+// Reduc
 import { connect } from "react-redux";
-import * as actionCreators from "../store/actions/index";
+// Action Functions
+import * as actionCreators from "../../store/actions";
 
 class ProductDetail extends Component {
   componentDidMount() {
@@ -136,4 +139,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(ProductDetail);
-

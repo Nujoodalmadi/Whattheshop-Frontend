@@ -1,8 +1,9 @@
+// React
 import React, { Component } from "react";
 import { Card, Button } from "react-bootstrap";
-import homeimage from "../images/homepage.png";
 import { NavLink } from "react-router-dom";
-// import homevid1 from "../images/homevid1.gif";
+// Images
+import homeimage from "../images/homepage.png";
 
 class Home extends Component {
   render() {

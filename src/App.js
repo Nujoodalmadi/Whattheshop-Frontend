@@ -1,22 +1,20 @@
+// React
 import React, { Component } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
-// import Register from "./Components/authentication/Register";
 // Redux
 import { connect } from "react-redux";
 import * as actionCreators from "./store/actions";
 
-import NavBar from "./components/Navbar";
+// Components
+import NavBar from "./components/Navigation/Navbar";
 import Register from "./components/Authentication/Register";
 import Login from "./components/Authentication/Login";
 import Profile from "./components/Profile";
-import ProductList from "./components/ProductsList";
-
+import ProductList from "./components/ProductList";
 import Home from "./components/Home";
-
 import ProductDetail from "./components/ProductDetail";
-
-import CartPage from "./components/Cart/CartPage";
+import CartPage from "./components/Cart";
 
 class App extends Component {
   componentDidMount() {
@@ -29,9 +27,7 @@ class App extends Component {
         <NavBar />
         <Switch>
           <Route path="/home" component={Home} />
-
           <Route path="/products/:productID" component={ProductDetail} />
-
           <Route path="/register" component={Register} />
           <Route path="/login" component={Login} />
           <Route path="/profile" component={Profile} />

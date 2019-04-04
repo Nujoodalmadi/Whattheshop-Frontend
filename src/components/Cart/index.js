@@ -1,5 +1,8 @@
+// React
 import React, { Component } from "react";
 import { Card, ListGroup } from "react-bootstrap";
+
+// Components
 import CartRow from "./CartRow";
 
 class CartPage extends Component {
