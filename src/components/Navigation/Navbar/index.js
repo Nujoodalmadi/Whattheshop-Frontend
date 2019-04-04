@@ -20,7 +20,7 @@ import { connect } from "react-redux";
 // Action Functions
 import * as actionCreators from "../../../store/actions";
 
-class Navbar extends Component {
+class index extends Component {
   constructor(props) {
     super(props);
 
@@ -117,4 +117,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Navbar);
+)(index);
