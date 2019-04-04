@@ -40,7 +40,7 @@ class Home extends Component {
                 .. Whether you prefer Loose Leaf or Sachets, our tea comes in a
                 variety of blends and brew methods
                 <div>
-                  <NavLink to="/list">
+                  <NavLink to="/products">
                     <Button
                       style={{
                         backgroundColor: "grey",
