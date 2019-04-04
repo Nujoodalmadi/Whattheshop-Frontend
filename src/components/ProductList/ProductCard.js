@@ -7,7 +7,7 @@ class ProductCard extends Component {
     const product = this.props.product;
 
     return (
-      <Link to={`/products/${product.id}`}>
+      <Link to={`/products/detail/${product.id}`}>
         <div className="card mx-3">
           <div className="card border-light mb-3" style={{ maxWidth: "18rem" }}>
             <img src={product.img} className="card-img-top" alt="..." />

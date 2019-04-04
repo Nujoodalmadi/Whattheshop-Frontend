@@ -159,7 +159,8 @@ const mapStateToProps = state => {
   };
 };
 const mapDispatchToProps = dispatch => ({
-  logout: () => dispatch(actionCreators.logout())
+  logout: () => dispatch(actionCreators.logout()),
+  fetchCatogries: () => dispatch(actionCreators.fetchCatogries())
 });
 
 export default connect(
