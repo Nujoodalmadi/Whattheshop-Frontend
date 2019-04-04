@@ -31,7 +31,7 @@ class App extends Component {
           <Route path="/register" component={Register} />
           <Route path="/login" component={Login} />
           <Route path="/profile" component={Profile} />
-          <Route path="/products" component={ProductList} />
+          <Route path="/products/:category?" component={ProductList} />
           <Route path="/cart" component={CartPage} />
           <Redirect to="/home" />
         </Switch>

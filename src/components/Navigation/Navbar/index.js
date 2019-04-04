@@ -8,7 +8,6 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  // NavLink,
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
@@ -23,7 +22,9 @@ import * as actionCreators from "../../../store/actions";
 class index extends Component {
   constructor(props) {
     super(props);
-
+    this.state = {
+      category: null
+    };
     this.toggle = this.toggle.bind(this);
     this.state = {
       isOpen: false
@@ -35,7 +36,22 @@ class index extends Component {
     });
   }
 
+  componentDidMount() {
+    this.props.fetchCatogries();
+  }
+
   render() {
+    const categoryRow = this.props.categories.map(category => (
+      <Link
+        className="dropdown-item"
+        to={`/products/${category.title.replace(/\s/g, "").toLowerCase()}`}
+        onClick={() => this.setState({ category: category.title })}
+        key={category.id}
+      >
+        {category.title}
+      </Link>
+    ));
+
     return (
       <div>
         <Navbar color="light" light expand="md">
@@ -54,6 +70,36 @@ class index extends Component {
           <i className="fas fa-leaf" style={{ color: "rgb(155, 166, 87)" }} />
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
+            <Nav className="d-flex flex-row" navbar>
+              <div className="dropdown ml-2">
+                <button
+                  className="btn btn-light dropdown-toggle"
+                  type="button"
+                  id="dropdownMenuButton"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  style={{ color: "rgb(155, 166, 87)" }}
+                >
+                  {this.state.category
+                    ? this.state.category
+                    : "Choose a Category"}
+                </button>
+                <div
+                  className="dropdown-menu"
+                  aria-labelledby="dropdownMenuButton"
+                >
+                  <Link
+                    className="dropdown-item"
+                    to={`/products`}
+                    onClick={() => this.setState({ category: "All" })}
+                  >
+                    All
+                  </Link>
+                  {categoryRow}
+                </div>
+              </div>
+            </Nav>
             <Nav className="navbar-nav ml-auto" navbar>
               <NavItem className="ml-auto p-2">
                 <NavLink to="/cart">
@@ -107,7 +153,9 @@ class index extends Component {
 
 const mapStateToProps = state => {
   return {
-    user: state.authReducer.user
+    user: state.authReducer.user,
+    products: state.products.products,
+    categories: state.products.categories
   };
 };
 const mapDispatchToProps = dispatch => ({
