@@ -48,7 +48,7 @@ export const login = (userData, history) => {
       let decodeUser = jwt_decode(user.token);
       setAuthToken(user.token);
       dispatch(setCurrentUser(decodeUser));
-      // history.push("");
+      history.push("/home");
     } catch (error) {
       console.error(error);
     }
