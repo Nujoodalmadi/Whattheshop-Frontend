@@ -36,3 +36,13 @@ export const fetchCatogries = () => {
     }
   };
 };
+
+export const currentProduct = currentProduct => ({
+  type: actionTypes.SET_CURRENT_PRODUCT,
+  payload: currentProduct
+});
+
+export const refreshCurrentProduct = productID => ({
+  type: actionTypes.REFRESH_CURRENT_PRODUCT,
+  payload: productID
+});

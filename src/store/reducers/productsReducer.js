@@ -3,6 +3,7 @@ import * as actionTypes from "../actions/actionTypes";
 
 const initialState = {
   products: [],
+  currentProduct: null,
   categories: []
 };
 
@@ -18,7 +19,19 @@ const reducer = (state = initialState, action) => {
         ...state,
         categories: action.payload
       };
-
+    case actionTypes.SET_CURRENT_PRODUCT:
+      return {
+        ...state,
+        currentProduct: action.payload
+      };
+    case actionTypes.REFRESH_CURRENT_PRODUCT:
+      let newProduct = state.products.find(product => {
+        return product.id === +action.payload;
+      });
+      return {
+        ...state,
+        currentProduct: newProduct
+      };
     default:
       return state;
   }
