@@ -5,15 +5,6 @@ import * as actionCreators from "../../store/actions";
 import { Row, Col } from "reactstrap";
 
 class Login extends Component {
-  state = {
-    username: "",
-    password: ""
-  };
-
-  componentDidMount = () => {
-    this.props.checkForToken();
-  };
-
   handleSubmit = e => {
     e.preventDefault();
     this.props.login(this.state, this.props.history);
@@ -78,9 +69,7 @@ class Login extends Component {
 
 const mapDispatchToProps = dispatch => ({
   login: (userData, history) =>
-    dispatch(actionCreators.login(userData, history)),
-
-  checkForToken: history => dispatch(actionCreators.checkForExpiredToken())
+    dispatch(actionCreators.login(userData, history))
 });
 
 export default connect(
