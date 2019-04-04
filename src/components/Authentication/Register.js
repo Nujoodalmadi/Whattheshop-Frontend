@@ -4,11 +4,6 @@ import { connect } from "react-redux";
 import * as actionCreators from "../../store/actions";
 
 class Register extends Component {
-  state = {
-    username: "",
-    password: ""
-  };
-
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
@@ -46,6 +41,36 @@ class Register extends Component {
               className="form-control"
               id="exampleInputPassword1"
               placeholder="Password"
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className="form-group">
+            <label>First name</label>
+            <input
+              name="first_name"
+              type="text"
+              className="form-control"
+              placeholder="Enter your first name "
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className="form-group">
+            <label>Last name</label>
+            <input
+              name="last_name"
+              type="text"
+              className="form-control"
+              placeholder="Enter your last name "
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className="form-group">
+            <label>Email</label>
+            <input
+              name="email"
+              type="email"
+              className="form-control"
+              placeholder="Enter your email"
               onChange={this.handleChange}
             />
           </div>
