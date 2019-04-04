@@ -14,7 +14,7 @@ class ProductList extends Component {
       <ProductCard key={product.name} product={product} />
     ));
 
-    console.log(productCards);
+    // console.log(productCards);
     return (
       <div className="container my-4 ">
         <div className="row justify-content-md-center">{productCards}</div>

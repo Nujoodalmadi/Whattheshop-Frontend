@@ -18,7 +18,7 @@ import {
 import { connect } from "react-redux";
 import CategoryRow from "../Category/CategoryRow";
 
-class Index extends Component {
+class index extends Component {
   constructor(props) {
     super(props);
 
@@ -44,7 +44,6 @@ class Index extends Component {
     return (
       <div>
         <Navbar color="light" light expand="md">
-
           <NavbarBrand>
             <NavLink
               style={{
@@ -56,8 +55,7 @@ class Index extends Component {
             >
               Saudi Tea Shop
             </NavLink>
-
-        
+          </NavbarBrand>
           <i className="fas fa-leaf" style={{ color: "rgb(155, 166, 87)" }} />
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
@@ -139,4 +137,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Index);
+)(index);
