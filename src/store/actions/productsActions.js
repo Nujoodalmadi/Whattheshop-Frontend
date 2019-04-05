@@ -28,6 +28,7 @@ export const fetchCatogries = () => {
     try {
       const res = await instance.get("/api/category");
       const categories = res.data;
+      console.log("TCL: fetchCatogries -> categories", categories);
       dispatch({
         type: actionTypes.FETCH_CATEGORIES,
         payload: categories
