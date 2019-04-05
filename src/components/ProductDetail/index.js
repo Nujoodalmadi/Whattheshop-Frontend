@@ -44,7 +44,7 @@ class ProductDetail extends Component {
                   <div className="carousel-inner">
                     <div className="carousel-item active">
                       <img
-                        src={product.img}
+                        src={product.images[0].image}
                         className="img-thumbnail img-fluid"
                         alt={product.name}
                         data-toggle="modal"
@@ -55,7 +55,7 @@ class ProductDetail extends Component {
                     </div>
                     <div className="carousel-item">
                       <img
-                        src={product.img2}
+                        src={product.images[0].image}
                         className="img-thumbnail img-fluid"
                         alt={product.name}
                         data-toggle="modal"
@@ -66,7 +66,7 @@ class ProductDetail extends Component {
                     </div>
                     <div className="carousel-item">
                       <img
-                        src={product.img3}
+                        src={product.images[0].image}
                         className="img-thumbnail img-fluid"
                         alt={product.name}
                         data-toggle="modal"

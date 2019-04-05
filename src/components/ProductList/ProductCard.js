@@ -14,7 +14,7 @@ class ProductCard extends Component {
     console.log("TCL: ProductCard -> render -> product", product);
 
     return (
-      <Link to={`/products/${product.id}`}>
+      <Link to={`/products/detail/${product.id}`}>
         <div
           className="card mx-3"
           onClick={() => this.props.getProduct(product)}
