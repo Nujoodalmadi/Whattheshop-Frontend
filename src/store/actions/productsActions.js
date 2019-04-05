@@ -10,8 +10,9 @@ const instance = axios.create({
 export const fetchProducts = () => {
   return async dispatch => {
     try {
-      const res = await instance.get("/api/");
+      const res = await instance.get("/api");
       const products = res.data;
+      console.log("TCL: fetchProducts -> products", products);
       dispatch({
         type: actionTypes.FETCH_PRODUCTS,
         payload: products
