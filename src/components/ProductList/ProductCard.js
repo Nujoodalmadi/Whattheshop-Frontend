@@ -11,6 +11,7 @@ import * as asctionCreators from "../../store/actions";
 class ProductCard extends Component {
   render() {
     const product = this.props.product;
+    console.log("TCL: ProductCard -> render -> product", product);
 
     return (
       <Link to={`/products/${product.id}`}>
@@ -19,7 +20,11 @@ class ProductCard extends Component {
           onClick={() => this.props.getProduct(product)}
         >
           <div className="card border-light mb-3" style={{ maxWidth: "18rem" }}>
-            <img src={product.img} className="card-img-top" alt="..." />
+            <img
+              src={product.images[0].image}
+              className="card-img-top"
+              alt="..."
+            />
             <div className="card-body">
               <h5 className="card-title">{product.name}</h5>
               <p className="card-text">

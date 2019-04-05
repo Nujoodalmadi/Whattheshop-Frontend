@@ -8,6 +8,7 @@ import ProductCard from "./ProductCard";
 class ProductList extends Component {
   render() {
     let categoryName = this.props.match.params.category;
+    console.log("TCL: ProductList -> render -> categoryName", categoryName);
     let productCards = [];
     if (categoryName) {
       let products = this.props.products;
@@ -21,6 +22,7 @@ class ProductList extends Component {
         .map(product => <ProductCard key={product.name} product={product} />);
     } else {
       let products = this.props.products;
+      console.log("TCL: ProductList -> render -> products", products);
       productCards = products.map(product => (
         <ProductCard key={product.name} product={product} />
       ));
