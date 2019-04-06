@@ -50,7 +50,6 @@ class CartRow extends Component {
             }
             className="ml-auto p-2 fas fa-minus"
             style={{ color: "rgb(155, 166, 87)", position: "relative" }}
-            disabled={this.props.item.quantity > 0 ? "" : "disabled"}
           />
         </ListGroup.Item>
       </ListGroupItem>

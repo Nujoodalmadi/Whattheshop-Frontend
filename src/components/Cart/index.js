@@ -2,7 +2,6 @@
 import React, { Component } from "react";
 import { Card, ListGroup } from "react-bootstrap";
 import { connect } from "react-redux";
-import * as actionCreators from "../../store/actions";
 
 // Components
 import CartRow from "./CartRow";
@@ -68,10 +67,6 @@ class CartPage extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  refreshCart: productObj => dispatch(actionCreators.cartUpdate(productObj))
-});
-
 const mapStateToProps = state => {
   return {
     cart: state.cartReducer.cart
@@ -80,5 +75,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  null
 )(CartPage);

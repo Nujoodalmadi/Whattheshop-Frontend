@@ -30,6 +30,15 @@ const cart = (state = initialState, action) => {
         addedProduct => addedProduct.product.id === removedItemID
       );
       itemInCart.quantity--;
+      if (itemInCart.quantity === 0) {
+        let cartItems = state.cart.filter(
+          item => item.product.id !== action.payload
+        );
+        return {
+          ...state,
+          cart: cartItems
+        };
+      }
       return {
         ...state,
         cart: [...state.cart]
