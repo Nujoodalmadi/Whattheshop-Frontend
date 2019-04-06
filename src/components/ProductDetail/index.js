@@ -11,24 +11,21 @@ class ProductDetail extends Component {
   };
   componentDidUpdate(prevProps) {
     this.props.refreshProduct(this.props.match.params.productID);
-
-    console.log("prevProps=>", prevProps);
   }
 
   handleAddClick = () => {
     this.props.addCart(this.props.product, this.state.quantity);
-    const newQuantity = this.state.quantity + 1;
-    this.setState({ quantity: newQuantity });
   };
 
   handleRemoveClick = () => {
     this.props.removeFromCart(this.props.product.id);
-    const newQuantity = this.state.quantity - 1;
-    this.setState({ quantity: newQuantity });
   };
 
   render() {
     const product = this.props.product;
+    const Itemquantity = this.props.cart.find(
+      item => item.product.id === this.props.product.id
+    );
     let content = product ? (
       <div className="alert alert-light" role="alert">
         <div
@@ -127,13 +124,34 @@ class ProductDetail extends Component {
                   <p> {product.description}</p>
                   <p>{product.stock}</p>
                 </div>
-
                 <p className="card-text">
                   <small className="text-muted">{product.stock}</small>
                 </p>
-                <button onClick={this.handleAddClick}>ADD</button>
-                <input value={this.state.quantity - 1} />
-                <button onClick={this.handleRemoveClick}>Remove</button>
+                <input
+                  style={{
+                    border: "0px",
+                    borderRadius: "50px",
+                    backgroundColor: "rgb(155, 166, 87)",
+                    width: "50px",
+                    textAlign: "center",
+                    color: "white"
+                  }}
+                  value={Itemquantity ? Itemquantity.quantity : 0}
+                />
+                {
+                  <i
+                    onClick={this.handleAddClick}
+                    className="ml-auto p-2 fas fa-plus"
+                    style={{ color: "rgb(155, 166, 87)", position: "relative" }}
+                  />
+                }
+                {Itemquantity && (
+                  <i
+                    onClick={this.handleRemoveClick}
+                    className="ml-auto p-2 fas fa-minus"
+                    style={{ color: "rgb(155, 166, 87)", position: "relative" }}
+                  />
+                )}
               </div>
             </div>
           </div>
