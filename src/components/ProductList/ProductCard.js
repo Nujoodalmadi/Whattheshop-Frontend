@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 // Action Functions
-import * as asctionCreators from "../../store/actions";
+import * as actionCreators from "../../store/actions";
 
 class ProductCard extends Component {
   render() {
@@ -41,7 +41,7 @@ class ProductCard extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  getProduct: product => dispatch(asctionCreators.currentProduct(product))
+  getProduct: product => dispatch(actionCreators.currentProduct(product))
 });
 
 export default connect(

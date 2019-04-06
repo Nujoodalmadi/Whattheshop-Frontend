@@ -21,6 +21,7 @@ class App extends Component {
     this.props.fetchProducts();
     this.props.checkForToken();
   }
+
   render() {
     return (
       <div className="content-wrapper">

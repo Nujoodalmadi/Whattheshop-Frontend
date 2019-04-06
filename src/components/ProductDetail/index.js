@@ -3,12 +3,29 @@ import React, { Component } from "react";
 // Reduc
 import { connect } from "react-redux";
 // Action Functions
-import * as asctionCreators from "../../store/actions";
+import * as actionCreators from "../../store/actions";
 
 class ProductDetail extends Component {
-  componentDidUpdate() {
+  state = {
+    quantity: 1
+  };
+  componentDidUpdate(prevProps) {
     this.props.refreshProduct(this.props.match.params.productID);
+
+    console.log("prevProps=>", prevProps);
   }
+
+  handleAddClick = () => {
+    this.props.addCart(this.props.product, this.state.quantity);
+    const newQuantity = this.state.quantity + 1;
+    this.setState({ quantity: newQuantity });
+  };
+
+  handleRemoveClick = () => {
+    this.props.removeFromCart(this.props.product.id);
+    const newQuantity = this.state.quantity - 1;
+    this.setState({ quantity: newQuantity });
+  };
 
   render() {
     const product = this.props.product;
@@ -110,9 +127,13 @@ class ProductDetail extends Component {
                   <p> {product.description}</p>
                   <p>{product.stock}</p>
                 </div>
+
                 <p className="card-text">
                   <small className="text-muted">{product.stock}</small>
                 </p>
+                <button onClick={this.handleAddClick}>ADD</button>
+                <input value={this.state.quantity - 1} />
+                <button onClick={this.handleRemoveClick}>Remove</button>
               </div>
             </div>
           </div>
@@ -128,13 +149,18 @@ class ProductDetail extends Component {
 const mapStateToProps = state => {
   return {
     product: state.products.currentProduct,
-    products: state.products.products
+    products: state.products.products,
+    cart: state.cartReducer.cart
   };
 };
 
 const mapDispatchToProps = dispatch => ({
   refreshProduct: productID =>
-    dispatch(asctionCreators.refreshCurrentProduct(productID))
+    dispatch(actionCreators.refreshCurrentProduct(productID)),
+  addCart: (productObj, quantity) =>
+    dispatch(actionCreators.addCart(productObj, quantity)),
+  removeFromCart: productID =>
+    dispatch(actionCreators.removeItemFromCart(productID))
 });
 export default connect(
   mapStateToProps,
