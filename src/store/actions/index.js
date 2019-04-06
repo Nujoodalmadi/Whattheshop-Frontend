@@ -7,3 +7,10 @@ export {
   currentProduct,
   refreshCurrentProduct
 } from "./productsActions";
+
+export {
+  addCart,
+  deleteCartItem,
+  removeItemFromCart,
+  cartUpdate
+} from "./cartActions";

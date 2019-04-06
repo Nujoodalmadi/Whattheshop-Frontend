@@ -3,15 +3,29 @@ import React, { Component } from "react";
 // Reduc
 import { connect } from "react-redux";
 // Action Functions
-import * as asctionCreators from "../../store/actions";
+import * as actionCreators from "../../store/actions";
 
 class ProductDetail extends Component {
-  componentDidUpdate() {
+  state = {
+    quantity: 1
+  };
+  componentDidUpdate(prevProps) {
     this.props.refreshProduct(this.props.match.params.productID);
   }
 
+  handleAddClick = () => {
+    this.props.addCart(this.props.product, this.state.quantity);
+  };
+
+  handleRemoveClick = () => {
+    this.props.removeFromCart(this.props.product.id);
+  };
+
   render() {
     const product = this.props.product;
+    const Itemquantity = this.props.cart.find(
+      item => item.product.id === this.props.product.id
+    );
     let content = product ? (
       <div className="alert alert-light" role="alert">
         <div
@@ -113,6 +127,34 @@ class ProductDetail extends Component {
                 <p className="card-text">
                   <small className="text-muted">{product.stock}</small>
                 </p>
+                <input
+                  style={{
+                    border: "0px",
+                    borderRadius: "50px",
+                    backgroundColor: "rgb(155, 166, 87)",
+                    width: "50px",
+                    textAlign: "center",
+                    color: "white"
+                  }}
+                  value={Itemquantity ? Itemquantity.quantity : 0}
+                />
+                {
+                  <i
+                    onClick={this.handleAddClick}
+                    className="ml-auto p-2 fas fa-plus"
+                    style={{
+                      color: "rgb(155, 166, 87)",
+                      position: "relative"
+                    }}
+                  />
+                }
+                {Itemquantity && (
+                  <i
+                    onClick={this.handleRemoveClick}
+                    className="ml-auto p-2 fas fa-minus"
+                    style={{ color: "rgb(155, 166, 87)", position: "relative" }}
+                  />
+                )}
               </div>
             </div>
           </div>
@@ -128,13 +170,18 @@ class ProductDetail extends Component {
 const mapStateToProps = state => {
   return {
     product: state.products.currentProduct,
-    products: state.products.products
+    products: state.products.products,
+    cart: state.cartReducer.cart
   };
 };
 
 const mapDispatchToProps = dispatch => ({
   refreshProduct: productID =>
-    dispatch(asctionCreators.refreshCurrentProduct(productID))
+    dispatch(actionCreators.refreshCurrentProduct(productID)),
+  addCart: (productObj, quantity) =>
+    dispatch(actionCreators.addCart(productObj, quantity)),
+  removeFromCart: productID =>
+    dispatch(actionCreators.removeItemFromCart(productID))
 });
 export default connect(
   mapStateToProps,

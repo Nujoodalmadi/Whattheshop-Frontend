@@ -1,17 +1,31 @@
 // React
 import React, { Component } from "react";
 import { Card, ListGroup } from "react-bootstrap";
+import { connect } from "react-redux";
 
 // Components
 import CartRow from "./CartRow";
 
 class CartPage extends Component {
+  // componentDidUpdate(prevProps) {
+  //   console.log(prevProps.cart.map(item => item.quantity));
+  //   console.log(this.props.cart.map(item => item.quantity));
+
+  // }
+
   render() {
+    const cartRow = this.props.cart.map(item => (
+      <CartRow key={item.product.id} item={item} />
+    ));
+    const mapTotal = this.props.cart.map(
+      item => item.product.price * item.quantity
+    );
+
     return (
       <div
         className=" justify-content-center mt-5"
         align="center"
-        style={{ minWidth: "960px" }}
+        style={{ minWidth: "1200px" }}
       >
         <Card className="w-75">
           <Card.Body style={{ textAlign: "center", height: "75px" }}>
@@ -30,7 +44,13 @@ class CartPage extends Component {
               <div className="p-2">Subtotal</div>
             </ListGroup.Item>
 
-            <CartRow />
+            {cartRow}
+            <div className="p-2 d-flex">
+              Total:{" "}
+              {mapTotal.reduce((accumulator, currentValue) => {
+                return accumulator + currentValue;
+              }, 0)}
+            </div>
           </ListGroup>
           <div className="d-flex justify-content-center">
             <button
@@ -47,4 +67,13 @@ class CartPage extends Component {
   }
 }
 
-export default CartPage;
+const mapStateToProps = state => {
+  return {
+    cart: state.cartReducer.cart
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  null
+)(CartPage);
