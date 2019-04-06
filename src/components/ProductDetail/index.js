@@ -142,7 +142,10 @@ class ProductDetail extends Component {
                   <i
                     onClick={this.handleAddClick}
                     className="ml-auto p-2 fas fa-plus"
-                    style={{ color: "rgb(155, 166, 87)", position: "relative" }}
+                    style={{
+                      color: "rgb(155, 166, 87)",
+                      position: "relative"
+                    }}
                   />
                 }
                 {Itemquantity && (

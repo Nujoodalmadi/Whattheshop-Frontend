@@ -41,6 +41,7 @@ class index extends Component {
   }
 
   render() {
+    const mapTotal = this.props.cart.map(item => item.quantity);
     const categoryRow = this.props.categories.map(category => (
       <Link
         className="dropdown-item"
@@ -107,6 +108,11 @@ class index extends Component {
                     className="fas fa-shopping-cart p-2 mt-1"
                     style={{ color: "rgb(155, 166, 87)" }}
                   />
+                  <text style={{ color: "rgb(205,92,92)" }}>
+                    {mapTotal.reduce((accumulator, currentValue) => {
+                      return accumulator + currentValue;
+                    }, 0)}
+                  </text>
                 </NavLink>
               </NavItem>
 
@@ -155,7 +161,8 @@ const mapStateToProps = state => {
   return {
     user: state.authReducer.user,
     products: state.products.products,
-    categories: state.products.categories
+    categories: state.products.categories,
+    cart: state.cartReducer.cart
   };
 };
 const mapDispatchToProps = dispatch => ({
