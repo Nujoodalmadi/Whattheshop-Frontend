@@ -2,7 +2,8 @@ import * as actionTypes from "../actions/actionTypes";
 
 // this cart recieves product objects {quantity, name, image}
 const initialState = {
-  cart: []
+  cart: [],
+  response: false
 };
 
 const cart = (state = initialState, action) => {
@@ -51,6 +52,11 @@ const cart = (state = initialState, action) => {
       return {
         ...state,
         cart: cartItems
+      };
+    case actionTypes.CREATE_ORDER:
+      return {
+        ...state,
+        response: action.payload
       };
     default:
       return state;
