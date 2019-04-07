@@ -14,33 +14,35 @@ class ProductCard extends Component {
     console.log("TCL: ProductCard -> render -> product", product);
 
     return (
-      <Link to={`/products/detail/${product.id}`}>
-        <div
-          className="card mx-3"
-          onClick={() => this.props.getProduct(product)}
-        >
-          <div className="card border-light mb-3" style={{ maxWidth: "18rem" }}>
+      <div className="card mx-3" onClick={() => this.props.getProduct(product)}>
+        <div className="card border-light mb-3" style={{ maxWidth: "18rem" }}>
+          <Link to={`/products/detail/${product.id}`}>
             <img
               src={product.images[0].image}
               className="card-img-top"
               alt="..."
             />
-            <div className="card-body">
+          </Link>
+          <div className="card-body">
+            <Link
+              to={`/products/detail/${product.id}`}
+              style={{ color: "rgb(155, 166, 87)" }}
+            >
               <h5 className="card-title">{product.name}</h5>
-              <p className="card-text">
-                Price: {product.price} SAR
-                <footer className="blockquote-footer">
-                  {product.stock > 0 ? (
-                    <div style={{ color: "green" }}>In Stock</div>
-                  ) : (
-                    <div style={{ color: "red" }}>Out of Stock</div>
-                  )}
-                </footer>
-              </p>
-            </div>
+            </Link>
+            <p className="card-text">
+              Price: {product.price} SAR
+              <footer className="blockquote-footer">
+                {product.stock > 0 ? (
+                  <div style={{ color: "green" }}>In Stock</div>
+                ) : (
+                  <div style={{ color: "red" }}>Out of Stock</div>
+                )}
+              </footer>
+            </p>
           </div>
         </div>
-      </Link>
+      </div>
     );
   }
 }
