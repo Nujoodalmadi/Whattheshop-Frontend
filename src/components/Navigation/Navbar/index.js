@@ -65,7 +65,7 @@ class index extends Component {
               }}
               to="/home"
             >
-              Saudi Tea Shop
+              Arabic Tea Shop
             </NavLink>
           </NavbarBrand>
           <i className="fas fa-leaf" style={{ color: "rgb(155, 166, 87)" }} />
