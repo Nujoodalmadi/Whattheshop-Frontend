@@ -26,7 +26,11 @@ class ProductCard extends Component {
             />
           </Link>
           <div className="card-body">
-            <Link to={`/products/detail/${product.id}`}>
+
+            <Link
+              to={`/products/detail/${product.id}`}
+              style={{ color: "rgb(155, 166, 87)" }}
+            >
               <h5 className="card-title">{product.name}</h5>
             </Link>
             <p className="card-text">
@@ -38,6 +42,7 @@ class ProductCard extends Component {
                   <div style={{ color: "red" }}>Out of Stock</div>
                 )}
               </footer>
+
               <div className=" flex-row align-items-center" align="center">
                 <button
                   onClick={this.handleAddClick}
@@ -62,6 +67,7 @@ class ProductCard extends Component {
                 </button>
               </div>
               <div />
+
             </p>
           </div>
         </div>

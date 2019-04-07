@@ -30,10 +30,10 @@ class ProductDetail extends Component {
       <div className="alert alert-light" role="alert">
         <div
           className="card mb-3"
-          style={{ maxWidth: "1540px", height: "350px" }}
+          style={{ backgroundColor: "rgb(248, 249, 250)" }}
         >
           <div className="row no-gutters">
-            <div className="col-md-7">
+            <div className="col-md-4">
               <div className="bd-example">
                 <div
                   id="carouselExampleCaptions"
@@ -63,6 +63,10 @@ class ProductDetail extends Component {
                         alt={product.name}
                         data-toggle="modal"
                         data-target="#exampleModalCenter"
+                        style={{
+                          height: "350px",
+                          width: "400px"
+                        }}
                       />
 
                       <div className="carousel-caption d-none d-md-block" />
@@ -74,6 +78,7 @@ class ProductDetail extends Component {
                         alt={product.name}
                         data-toggle="modal"
                         data-target="#exampleModalCenter"
+                        style={{ height: "350px", width: "400px" }}
                       />
 
                       <div className="carousel-caption d-none d-md-block" />
@@ -85,6 +90,7 @@ class ProductDetail extends Component {
                         alt={product.name}
                         data-toggle="modal"
                         data-target="#exampleModalCenter"
+                        style={{ height: "350px", width: "400px" }}
                       />
                       <div className="carousel-caption d-none d-md-block" />
                     </div>
@@ -118,15 +124,25 @@ class ProductDetail extends Component {
             </div>
             <div className="col-md-5">
               <div className="card-body">
-                <h5 className="card-title">{product.name}</h5>
+                <h5
+                  className="card-title"
+                  style={{ color: "rgb(186, 123, 128)", fontWeight: "bold" }}
+                >
+                  {product.name}
+                </h5>
                 <div className="card-text">
-                  <p> {product.price}</p>
-                  <p> {product.description}</p>
-                  <p>{product.stock}</p>
+                  <p>Price: {product.price}</p>
+                  <small className="text-muted">{product.description}</small>
+                  <footer className="blockquote-footer">
+                    {product.stock > 0 ? (
+                      <div style={{ color: "green" }}>In Stock</div>
+                    ) : (
+                      <div style={{ color: "red" }}>Out of Stock</div>
+                    )}
+                    <small className="text-muted">{product.stock}</small>
+                  </footer>
                 </div>
-                <p className="card-text">
-                  <small className="text-muted">{product.stock}</small>
-                </p>
+
                 <input
                   style={{
                     border: "0px",
