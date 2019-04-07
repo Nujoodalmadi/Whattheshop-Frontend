@@ -4,6 +4,7 @@ export { login, logout, signup, checkForExpiredToken } from "./authActions";
 export {
   fetchProducts,
   fetchCatogries,
+  fetchOrders,
   currentProduct,
   refreshCurrentProduct
 } from "./productsActions";

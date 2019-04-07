@@ -17,5 +17,8 @@ export const REMOVE_ITEM_FROM_CART = "REMOVE_ITEM_FROM_CART";
 export const ADD_TO_CART = "ADD_TO_CART";
 export const REMOVE_FROM_CART = "REMOVE_FROM_CART";
 
+//Orders
+export const FETCH_ORDERS = "FETCH_ORDERS";
+
 // Profile
 // fetching a profile based on the logged in user
