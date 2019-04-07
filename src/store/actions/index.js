@@ -9,4 +9,9 @@ export {
   refreshCurrentProduct
 } from "./productsActions";
 
-export { addCart, deleteCartItem, removeItemFromCart } from "./cartActions";
+export {
+  addCart,
+  deleteCartItem,
+  removeItemFromCart,
+  createOrder
+} from "./cartActions";
