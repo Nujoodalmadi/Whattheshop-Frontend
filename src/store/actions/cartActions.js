@@ -15,8 +15,3 @@ export const removeItemFromCart = productID => ({
   type: actionTypes.REMOVE_ITEM_FROM_CART,
   payload: productID
 });
-
-export const cartUpdate = productObj => ({
-  type: actionTypes.CART_UPDATE,
-  payload: productObj
-});

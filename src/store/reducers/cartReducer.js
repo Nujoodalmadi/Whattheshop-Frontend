@@ -52,22 +52,6 @@ const cart = (state = initialState, action) => {
         ...state,
         cart: cartItems
       };
-    case actionTypes.CART_UPDATE:
-      // let updatedIndex = state.cart.findIndex(
-      //   item => item.product.id === action.payload.product.id
-      // );
-      // state.cart[updatedIndex] = action.payload;
-      // return {
-      //   ...state,
-      //   cart: [...state.cart]
-      // };
-
-      return {
-        ...state,
-        cart: state.cart.map(item =>
-          item.product === action.payload.product ? action.payload : item
-        )
-      };
     default:
       return state;
   }
