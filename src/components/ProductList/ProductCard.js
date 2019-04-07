@@ -32,7 +32,7 @@ class ProductCard extends Component {
             >
               <h5 className="card-title">{product.name}</h5>
             </Link>
-            <p className="card-text">
+            <div className="card-text">
               Price: {product.price} SAR
               <footer className="blockquote-footer">
                 {product.stock > 0 ? (
@@ -64,7 +64,7 @@ class ProductCard extends Component {
                   />
                 </button>
               </div>
-            </p>
+            </div>
           </div>
         </div>
       </div>
