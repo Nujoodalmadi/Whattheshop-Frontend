@@ -9,44 +9,71 @@ import { connect } from "react-redux";
 import * as actionCreators from "../../store/actions";
 
 class ProductCard extends Component {
+  handleAddClick = () => {
+    this.props.addCart(this.props.product, 1);
+  };
   render() {
     const product = this.props.product;
-    console.log("TCL: ProductCard -> render -> product", product);
 
     return (
-      <Link to={`/products/detail/${product.id}`}>
-        <div
-          className="card mx-3"
-          onClick={() => this.props.getProduct(product)}
-        >
-          <div className="card border-light mb-3" style={{ maxWidth: "18rem" }}>
+      <div className="card mx-3" onClick={() => this.props.getProduct(product)}>
+        <div className="card border-light mb-3" style={{ maxWidth: "18rem" }}>
+          <Link to={`/products/detail/${product.id}`}>
             <img
               src={product.images[0].image}
               className="card-img-top"
               alt="..."
             />
-            <div className="card-body">
+          </Link>
+          <div className="card-body">
+            <Link to={`/products/detail/${product.id}`}>
               <h5 className="card-title">{product.name}</h5>
-              <p className="card-text">
-                Price: {product.price} SAR
-                <footer className="blockquote-footer">
-                  {product.stock > 0 ? (
-                    <div style={{ color: "green" }}>In Stock</div>
-                  ) : (
-                    <div style={{ color: "red" }}>Out of Stock</div>
-                  )}
-                </footer>
-              </p>
-            </div>
+            </Link>
+            <p className="card-text">
+              Price: {product.price} SAR
+              <footer className="blockquote-footer">
+                {product.stock > 0 ? (
+                  <div style={{ color: "green" }}>In Stock</div>
+                ) : (
+                  <div style={{ color: "red" }}>Out of Stock</div>
+                )}
+              </footer>
+              <div className=" flex-row align-items-center" align="center">
+                <button
+                  onClick={this.handleAddClick}
+                  className=" flex-row align-items-center"
+                  align="center"
+                  style={{
+                    backgroundColor: "rgb(155, 166, 87)",
+                    borderRadius: "50px",
+                    width: "35px",
+                    textAlign: "center",
+                    color: "white",
+                    border: "8px",
+                    borderColor: "white"
+                  }}
+                >
+                  <i
+                    className=" fas fa-plus"
+                    style={{
+                      color: "white"
+                    }}
+                  />
+                </button>
+              </div>
+              <div />
+            </p>
           </div>
         </div>
-      </Link>
+      </div>
     );
   }
 }
 
 const mapDispatchToProps = dispatch => ({
-  getProduct: product => dispatch(actionCreators.currentProduct(product))
+  getProduct: product => dispatch(actionCreators.currentProduct(product)),
+  addCart: (productObj, quantity) =>
+    dispatch(actionCreators.addCart(productObj, quantity))
 });
 
 export default connect(
