@@ -23,6 +23,10 @@ export const removeItemFromCart = productID => ({
   payload: productID
 });
 
+export const emptyCart = () => ({
+  type: actionTypes.EMPTY_CART
+});
+
 export const createOrder = orders => {
   return async dispatch => {
     try {

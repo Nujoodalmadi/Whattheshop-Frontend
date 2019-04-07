@@ -53,6 +53,11 @@ const cart = (state = initialState, action) => {
         ...state,
         cart: cartItems
       };
+    case actionTypes.EMPTY_CART:
+      return {
+        ...state,
+        cart: []
+      };
     case actionTypes.CREATE_ORDER:
       return {
         ...state,

@@ -9,9 +9,11 @@ import { connect } from "react-redux";
 import * as actionCreators from "../../store/actions";
 
 class ProductCard extends Component {
+  handleAddClick = () => {
+    this.props.addCart(this.props.product, 1);
+  };
   render() {
     const product = this.props.product;
-    console.log("TCL: ProductCard -> render -> product", product);
 
     return (
       <div className="card mx-3" onClick={() => this.props.getProduct(product)}>
@@ -39,6 +41,29 @@ class ProductCard extends Component {
                   <div style={{ color: "red" }}>Out of Stock</div>
                 )}
               </footer>
+              <div className=" flex-row align-items-center" align="center">
+                <button
+                  onClick={this.handleAddClick}
+                  className=" flex-row align-items-center"
+                  align="center"
+                  style={{
+                    backgroundColor: "rgb(155, 166, 87)",
+                    borderRadius: "50px",
+                    width: "35px",
+                    textAlign: "center",
+                    color: "white",
+                    border: "8px",
+                    borderColor: "white"
+                  }}
+                >
+                  <i
+                    className=" fas fa-plus"
+                    style={{
+                      color: "white"
+                    }}
+                  />
+                </button>
+              </div>
             </p>
           </div>
         </div>
@@ -48,7 +73,9 @@ class ProductCard extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  getProduct: product => dispatch(actionCreators.currentProduct(product))
+  getProduct: product => dispatch(actionCreators.currentProduct(product)),
+  addCart: (productObj, quantity) =>
+    dispatch(actionCreators.addCart(productObj, quantity))
 });
 
 export default connect(
