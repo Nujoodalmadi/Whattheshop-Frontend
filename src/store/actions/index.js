@@ -12,5 +12,6 @@ export {
   addCart,
   deleteCartItem,
   removeItemFromCart,
-  cartUpdate
+  cartUpdate,
+  emptyCart
 } from "./cartActions";

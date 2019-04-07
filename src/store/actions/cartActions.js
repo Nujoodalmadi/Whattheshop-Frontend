@@ -20,3 +20,7 @@ export const cartUpdate = productObj => ({
   type: actionTypes.CART_UPDATE,
   payload: productObj
 });
+
+export const emptyCart = () => ({
+  type: actionTypes.EMPTY_CART
+});
