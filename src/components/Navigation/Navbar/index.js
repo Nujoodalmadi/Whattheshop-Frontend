@@ -40,6 +40,10 @@ class index extends Component {
     this.props.fetchCatogries();
   }
 
+  handleLogout = async () => {
+    await this.props.emptyCart();
+    this.props.logout();
+  };
   render() {
     const mapTotal = this.props.cart.map(item => item.quantity);
     const categoryRow = this.props.categories.map(category => (
@@ -65,7 +69,7 @@ class index extends Component {
               }}
               to="/home"
             >
-              Saudi Tea Shop
+              Arabic Tea Shop
             </NavLink>
           </NavbarBrand>
           <i className="fas fa-leaf" style={{ color: "rgb(155, 166, 87)" }} />
@@ -130,7 +134,7 @@ class index extends Component {
                     </DropdownItem>
                     <DropdownItem>My Orders</DropdownItem>
 
-                    <DropdownItem onClick={this.props.logout}>
+                    <DropdownItem onClick={this.handleLogout}>
                       Log Out
                     </DropdownItem>
                   </DropdownMenu>
@@ -167,6 +171,7 @@ const mapStateToProps = state => {
 };
 const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(actionCreators.logout()),
+  emptyCart: () => dispatch(actionCreators.emptyCart()),
   fetchCatogries: () => dispatch(actionCreators.fetchCatogries())
 });
 
