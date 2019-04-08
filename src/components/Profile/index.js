@@ -1,27 +1,21 @@
 import React, { Component } from "react";
-import * as actionCreators from "../../store/actions";
 import { connect } from "react-redux";
 
 class index extends Component {
-  componentDidMount() {
-    this.props.fetchOrders();
-  }
-
+  componentDidMount() {}
   render() {
-    const orders = this.props.orders;
-    console.log("TCL: index -> render -> orders", orders);
-    return <div />;
+    const profile = this.props.profile;
+    // console.log("TCL: index -> render -> profile", profile);
+    return (
+      <div className="alert alert-light" role="alert">
+        {profile.user.username}
+      </div>
+    );
   }
 }
-
-const mapStateToProps = state => ({
-  orders: state.products.orders
-});
-
-const mapDispatchToProps = dispatch => ({
-  fetchOrders: () => dispatch(actionCreators.fetchOrders())
-});
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(index);
+const mapStateToProps = state => {
+  return {
+    profile: state.profile.profile
+  };
+};
+export default connect(mapStateToProps)(index);

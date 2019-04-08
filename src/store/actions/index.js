@@ -16,3 +16,5 @@ export {
   emptyCart,
   createOrder
 } from "./cartActions";
+
+export { fetchProfile, updateProfile } from "./profileActions";

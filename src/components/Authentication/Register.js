@@ -51,6 +51,36 @@ class Register extends Component {
               onChange={this.handleChange}
             />
           </div>
+          <div className="form-group">
+            <label>Frist Name</label>
+            <input
+              name="first_name"
+              type="text"
+              className="form-control"
+              placeholder="Enter You First Name"
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className="form-group">
+            <label>Last Name</label>
+            <input
+              name="last_name"
+              type="text"
+              className="form-control"
+              placeholder="Enter You Last Name"
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className="form-group">
+            <label>Email</label>
+            <input
+              name="email"
+              type="text"
+              className="form-control"
+              placeholder="Enter You Email"
+              onChange={this.handleChange}
+            />
+          </div>
 
           <button
             type="submit"

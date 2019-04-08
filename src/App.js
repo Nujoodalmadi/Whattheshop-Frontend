@@ -29,9 +29,10 @@ class App extends Component {
         <Switch>
           <Route path="/home" component={Home} />
           <Route path="/products/detail/:productID" component={ProductDetail} />
+          <Route path="/profile" component={Profile} />
+          {/* <Route path="/profile/:profileID/update" component={ProfileUpdate} /> */}
           <Route path="/register" component={Register} />
           <Route path="/login" component={Login} />
-          <Route path="/profile" component={Profile} />
           <Route path="/products/:category?" component={ProductList} />
           <Route path="/cart" component={CartPage} />
           <Redirect to="/home" />

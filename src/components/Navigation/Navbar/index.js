@@ -36,9 +36,10 @@ class index extends Component {
     });
   }
 
-  componentDidMount() {
+  componentDidMount = async () => {
     this.props.fetchCatogries();
-  }
+    await this.props.fetchProfile();
+  };
 
   handleLogout = async () => {
     await this.props.emptyCart();
@@ -57,7 +58,8 @@ class index extends Component {
         {category.title}
       </Link>
     ));
-
+    const profile = this.props.profile;
+    console.log("TCL: index -> render -> profile", profile);
     return (
       <div>
         <Navbar color="light" light expand="md">
@@ -131,7 +133,14 @@ class index extends Component {
                   </DropdownToggle>
                   <DropdownMenu right>
                     <DropdownItem>
-                      <Link to="/profile">My Profile</Link>
+                      <Link
+                        to="/profile"
+                        onClick={() => {
+                          this.props.fetchProfile();
+                        }}
+                      >
+                        My Profile
+                      </Link>
                     </DropdownItem>
                     <DropdownItem>My Orders</DropdownItem>
 
@@ -167,13 +176,15 @@ const mapStateToProps = state => {
     user: state.authReducer.user,
     products: state.products.products,
     categories: state.products.categories,
-    cart: state.cartReducer.cart
+    cart: state.cartReducer.cart,
+    profile: state.profile.profile
   };
 };
 const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(actionCreators.logout()),
   emptyCart: () => dispatch(actionCreators.emptyCart()),
-  fetchCatogries: () => dispatch(actionCreators.fetchCatogries())
+  fetchCatogries: () => dispatch(actionCreators.fetchCatogries()),
+  fetchProfile: () => dispatch(actionCreators.fetchProfile())
 });
 
 export default connect(

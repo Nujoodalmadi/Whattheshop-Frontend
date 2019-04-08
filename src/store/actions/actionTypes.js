@@ -24,3 +24,5 @@ export const FETCH_ORDERS = "FETCH_ORDERS";
 
 // Profile
 // fetching a profile based on the logged in user
+export const FETCH_PROFILE = "FETCH_PROFILE";
+export const UPDATE_PROFILE = " UPDATE_PROFILE";
