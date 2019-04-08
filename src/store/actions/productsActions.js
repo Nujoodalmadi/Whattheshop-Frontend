@@ -12,7 +12,6 @@ export const fetchProducts = () => {
     try {
       const res = await instance.get("/api");
       const products = res.data;
-      console.log("TCL: fetchProducts -> products", products);
       dispatch({
         type: actionTypes.FETCH_PRODUCTS,
         payload: products
@@ -28,7 +27,6 @@ export const fetchCatogries = () => {
     try {
       const res = await instance.get("/api/category");
       const categories = res.data;
-      console.log("TCL: fetchCatogries -> categories", categories);
       dispatch({
         type: actionTypes.FETCH_CATEGORIES,
         payload: categories
@@ -39,6 +37,20 @@ export const fetchCatogries = () => {
   };
 };
 
+// export const fetchOrders = () => {
+//   return async dispatch => {
+//     try {
+//       const res = await instance.get("api/orders");
+//       const orders = res.data;
+//       dispatch({
+//         type: actionTypes.FETCH_ORDERS,
+//         payload: orders
+//       });
+//     } catch (error) {
+//       console.log("Something went wrong with ", error);
+//     }
+//   };
+// };
 export const currentProduct = currentProduct => ({
   type: actionTypes.SET_CURRENT_PRODUCT,
   payload: currentProduct

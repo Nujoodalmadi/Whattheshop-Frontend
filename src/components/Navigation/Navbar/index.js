@@ -44,6 +44,7 @@ class index extends Component {
     await this.props.emptyCart();
     this.props.logout();
   };
+
   render() {
     const mapTotal = this.props.cart.map(item => item.quantity);
     const categoryRow = this.props.categories.map(category => (
@@ -112,11 +113,11 @@ class index extends Component {
                     className="fas fa-shopping-cart p-2 mt-1"
                     style={{ color: "rgb(155, 166, 87)" }}
                   />
-                  <text style={{ color: "rgb(205,92,92)" }}>
+                  <span style={{ color: "rgb(205,92,92)" }}>
                     {mapTotal.reduce((accumulator, currentValue) => {
                       return accumulator + currentValue;
                     }, 0)}
-                  </text>
+                  </span>
                 </NavLink>
               </NavItem>
 

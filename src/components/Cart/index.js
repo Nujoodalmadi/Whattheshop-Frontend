@@ -6,6 +6,9 @@ import { connect } from "react-redux";
 // Components
 import CartRow from "./CartRow";
 
+// Action Functions
+import * as actionCreators from "../../store/actions";
+
 class CartPage extends Component {
   // componentDidUpdate(prevProps) {
   //   console.log(prevProps.cart.map(item => item.quantity));
@@ -14,13 +17,22 @@ class CartPage extends Component {
   // }
 
   render() {
+    let orders = [
+      {
+        product: 3,
+        quantity: 30
+      },
+      {
+        product: 4,
+        quantity: 30
+      }
+    ];
     const cartRow = this.props.cart.map(item => (
       <CartRow key={item.product.id} item={item} />
     ));
     const mapTotal = this.props.cart.map(
       item => item.product.price * item.quantity
     );
-
     return (
       <div
         className=" justify-content-center mt-5"
@@ -57,6 +69,7 @@ class CartPage extends Component {
               type="submit"
               className="btn btn-light "
               style={{ color: "grey", margin: "10px" }}
+              onClick={() => this.props.createOrder(orders)}
             >
               Checkout
             </button>
@@ -73,7 +86,12 @@ const mapStateToProps = state => {
   };
 };
 
+const mapDispatchToProps = dispatch => {
+  return {
+    createOrder: orders => dispatch(actionCreators.createOrder(orders))
+  };
+};
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(CartPage);

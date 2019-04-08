@@ -5,10 +5,12 @@ import { combineReducers } from "redux";
 import authReducer from "./authReducer";
 import productsReducer from "./productsReducer";
 import cartReducer from "./cartReducer";
+import historyReducer from "./historyReducer";
 
 // Combining the reducers
 export default combineReducers({
   authReducer: authReducer,
   products: productsReducer,
-  cartReducer: cartReducer
+  cartReducer: cartReducer,
+  historyReducer: historyReducer
 });
