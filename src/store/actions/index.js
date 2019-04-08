@@ -13,10 +13,8 @@ export {
   addCart,
   deleteCartItem,
   removeItemFromCart,
-  cartUpdate,
-  emptyCart
+  emptyCart,
   createOrder
-
 } from "./cartActions";
 
 export { fetchOrdersHistory } from "./historyActions";

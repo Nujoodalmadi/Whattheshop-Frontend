@@ -4,22 +4,22 @@ import { connect } from "react-redux";
 
 class index extends Component {
   componentDidMount() {
-    this.props.fetchOrders();
+    // this.props.fetchOrders();
   }
 
   render() {
-    const orders = this.props.orders;
-    console.log("TCL: index -> render -> orders", orders);
+    // const orders = this.props.orders;
+    // console.log("TCL: index -> render -> orders", orders);
     return <div />;
   }
 }
 
 const mapStateToProps = state => ({
-  orders: state.products.orders
+  // orders: state.products.orders
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchOrders: () => dispatch(actionCreators.fetchOrders())
+  // fetchOrders: () => dispatch(actionCreators.fetchOrders())
 });
 export default connect(
   mapStateToProps,
