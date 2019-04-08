@@ -19,8 +19,8 @@ export const REMOVE_FROM_CART = "REMOVE_FROM_CART";
 export const CREATE_ORDER = "CREATE_ORDER";
 export const EMPTY_CART = "EMPTY_CART";
 
-//Orders
-export const FETCH_ORDERS = "FETCH_ORDERS";
+//Orders History
+export const FETCH_ORDERS_HISTORY = "FETCH_ORDERS_HISTORY";
 
 // Profile
 // fetching a profile based on the logged in user

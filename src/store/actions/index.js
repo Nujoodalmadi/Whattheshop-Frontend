@@ -4,7 +4,7 @@ export { login, logout, signup, checkForExpiredToken } from "./authActions";
 export {
   fetchProducts,
   fetchCatogries,
-  fetchOrders,
+  // fetchOrders,
   currentProduct,
   refreshCurrentProduct
 } from "./productsActions";
@@ -16,3 +16,5 @@ export {
   emptyCart,
   createOrder
 } from "./cartActions";
+
+export { fetchOrdersHistory } from "./historyActions";

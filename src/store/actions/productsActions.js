@@ -37,20 +37,20 @@ export const fetchCatogries = () => {
   };
 };
 
-export const fetchOrders = () => {
-  return async dispatch => {
-    try {
-      const res = await instance.get("api/orders");
-      const orders = res.data;
-      dispatch({
-        type: actionTypes.FETCH_ORDERS,
-        payload: orders
-      });
-    } catch (error) {
-      console.log("Something went wrong with ", error);
-    }
-  };
-};
+// export const fetchOrders = () => {
+//   return async dispatch => {
+//     try {
+//       const res = await instance.get("api/orders");
+//       const orders = res.data;
+//       dispatch({
+//         type: actionTypes.FETCH_ORDERS,
+//         payload: orders
+//       });
+//     } catch (error) {
+//       console.log("Something went wrong with ", error);
+//     }
+//   };
+// };
 export const currentProduct = currentProduct => ({
   type: actionTypes.SET_CURRENT_PRODUCT,
   payload: currentProduct
