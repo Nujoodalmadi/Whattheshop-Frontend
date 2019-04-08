@@ -27,3 +27,118 @@ code {
 .card {
   margin-bottom: 40px;
 }
+
+.auth-table {
+  height: 500px;
+}
+.auth-form {
+  width: 500px;
+}
+
+.auth-button {
+  color: grey;
+}
+
+#cart-row {
+  font-size: 15px;
+  padding: 20px;
+}
+
+.row-item {
+  font-size: 13px;
+}
+
+.relative {
+  position: relative;
+}
+
+#order-row {
+  font-size: 15px;
+  padding: 20px;
+  margin-left: 55px;
+}
+
+#order-button {
+  width: 70px;
+  font-size: 15px;
+  border-radius: 50px;
+  color: white;
+  border: 0px;
+  padding: 0px;
+}
+
+#order-icon {
+  color: white;
+  position: relative;
+}
+
+#cart-body {
+  text-align: center;
+  height: 75px;
+}
+
+#cart-title {
+  font-size: 25px;
+}
+
+#cart-item {
+  font-size: 12px;
+  font-weight: bold;
+}
+#cart-button {
+  color: grey;
+  margin: 10px;
+}
+
+#navbrand {
+  font-family: "Helvetica Neue";
+  color: #778899;
+  font-size: 25px;
+}
+
+.brandcolor {
+  color: rgb(155, 166, 87);
+}
+
+#detail-image {
+  height: 350px;
+  width: 400px;
+}
+
+#detail-card {
+  background-color: rgb(248, 249, 250);
+}
+
+#detail-card-title {
+  color: rgb(186, 123, 128);
+  font-weight: bold;
+}
+
+#detail-input {
+  border: 0px;
+  border-radius: 50px;
+  width: 50px;
+  text-align: center;
+  color: white;
+  background-color: rgb(155, 166, 87);
+}
+
+.in-stock {
+  color: green;
+}
+
+.out-stock {
+  color: red;
+}
+
+#card-border {
+  max-width: 18rem;
+}
+
+#add-cart {
+  border-radius: 50px;
+  width: 35px;
+  text-align: center;
+  border: 8px;
+  border-color: white;
+}

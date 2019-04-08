@@ -28,10 +28,7 @@ class ProductDetail extends Component {
     );
     let content = product ? (
       <div className="alert alert-light" role="alert">
-        <div
-          className="card mb-3"
-          style={{ backgroundColor: "rgb(248, 249, 250)" }}
-        >
+        <div className="card mb-3" id="detail-card">
           <div className="row no-gutters">
             <div className="col-md-4">
               <div className="bd-example">
@@ -63,10 +60,7 @@ class ProductDetail extends Component {
                         alt={product.name}
                         data-toggle="modal"
                         data-target="#exampleModalCenter"
-                        style={{
-                          height: "350px",
-                          width: "400px"
-                        }}
+                        id="detail-image"
                       />
 
                       <div className="carousel-caption d-none d-md-block" />
@@ -78,7 +72,7 @@ class ProductDetail extends Component {
                         alt={product.name}
                         data-toggle="modal"
                         data-target="#exampleModalCenter"
-                        style={{ height: "350px", width: "400px" }}
+                        id="detail-image"
                       />
 
                       <div className="carousel-caption d-none d-md-block" />
@@ -90,7 +84,7 @@ class ProductDetail extends Component {
                         alt={product.name}
                         data-toggle="modal"
                         data-target="#exampleModalCenter"
-                        style={{ height: "350px", width: "400px" }}
+                        id="detail-image"
                       />
                       <div className="carousel-caption d-none d-md-block" />
                     </div>
@@ -124,10 +118,7 @@ class ProductDetail extends Component {
             </div>
             <div className="col-md-5">
               <div className="card-body">
-                <h5
-                  className="card-title"
-                  style={{ color: "rgb(186, 123, 128)", fontWeight: "bold" }}
-                >
+                <h5 className="card-title" id="detail-card-title">
                   {product.name}
                 </h5>
                 <div className="card-text">
@@ -135,40 +126,28 @@ class ProductDetail extends Component {
                   <small className="text-muted">{product.description}</small>
                   <footer className="blockquote-footer">
                     {product.stock > 0 ? (
-                      <div style={{ color: "green" }}>In Stock</div>
+                      <div className="in-stock">In Stock</div>
                     ) : (
-                      <div style={{ color: "red" }}>Out of Stock</div>
+                      <div className="out-stock">Out of Stock</div>
                     )}
                     <small className="text-muted">{product.stock}</small>
                   </footer>
                 </div>
 
                 <input
-                  style={{
-                    border: "0px",
-                    borderRadius: "50px",
-                    backgroundColor: "rgb(155, 166, 87)",
-                    width: "50px",
-                    textAlign: "center",
-                    color: "white"
-                  }}
+                  id="detail-input"
                   value={Itemquantity ? Itemquantity.quantity : 0}
                 />
                 {
                   <i
                     onClick={this.handleAddClick}
-                    className="ml-auto p-2 fas fa-plus"
-                    style={{
-                      color: "rgb(155, 166, 87)",
-                      position: "relative"
-                    }}
+                    className="ml-auto p-2 fas fa-plus relative brandcolor"
                   />
                 }
                 {Itemquantity && (
                   <i
                     onClick={this.handleRemoveClick}
-                    className="ml-auto p-2 fas fa-minus"
-                    style={{ color: "rgb(155, 166, 87)", position: "relative" }}
+                    className="ml-auto p-2 fas fa-minus elative brandcolor"
                   />
                 )}
               </div>

@@ -48,19 +48,16 @@ class CartPage extends Component {
         <div
           className=" justify-content-center mt-5"
           align="center"
-          style={{ minWidth: "1200px" }}
+          // style={{ minWidth: "1200px" }}
         >
           <Card className="w-75">
-            <Card.Body style={{ textAlign: "center", height: "75px" }}>
-              <Card.Title className="text-muted" style={{ fontSize: "25px" }}>
+            <Card.Body id="cart-body">
+              <Card.Title className="text-muted" id="cart-title">
                 Your Cart
               </Card.Title>
             </Card.Body>
             <ListGroup className="list-group-flush">
-              <ListGroup.Item
-                style={{ fontSize: "12px", fontWeight: "bold" }}
-                className="d-flex flex-row"
-              >
+              <ListGroup.Item className="d-flex flex-row" id="cart-item">
                 <div className="p-2 col-5 mr-2 ">Item</div>
                 <div className="p-2 col-3 mr-5 "> Price (each)</div>
                 <div className="p-2 col-1 mr-3">Qty </div>
@@ -78,8 +75,8 @@ class CartPage extends Component {
             <div className="d-flex justify-content-center">
               <button
                 type="submit"
-                className="btn btn-light "
-                style={{ color: "grey", margin: "10px" }}
+                className="btn btn-light"
+                id="cart-button"
                 onClick={() => this.handleClick(orders_list)}
               >
                 Checkout

@@ -23,13 +23,9 @@ class Login extends Component {
   };
   render() {
     return (
-      <div
-        className="d-md-flex justify-content-center w-100 p-12  "
-        style={{ height: "500px" }}
-      >
+      <div className="d-md-flex justify-content-center w-100 p-12 auth-table">
         <form
-          className="  align-self-baseline mt-5  "
-          style={{ width: "500px" }}
+          className="align-self-baseline mt-5 auth-form"
           onSubmit={this.handleSubmit}
         >
           <Row form>
@@ -56,11 +52,7 @@ class Login extends Component {
                 />
               </div>
 
-              <button
-                type="submit"
-                className="btn btn-light"
-                style={{ color: "grey" }}
-              >
+              <button type="submit" className="btn btn-light auth-button">
                 Login
               </button>
             </Col>
