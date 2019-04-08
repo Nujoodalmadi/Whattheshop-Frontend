@@ -7,7 +7,7 @@ const initialState = {
 
 const historyReducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.FETCH_ORDERS_HISTOR:
+    case actionTypes.FETCH_ORDERS_HISTORY:
       return {
         ...state,
         orders: action.payload
