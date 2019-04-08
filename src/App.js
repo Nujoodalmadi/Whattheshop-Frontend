@@ -15,6 +15,8 @@ import ProductList from "./components/ProductList";
 import Home from "./components/Home";
 import ProductDetail from "./components/ProductDetail";
 import CartPage from "./components/Cart";
+import OrdersHistory from "./components/Profile/OrderHistory/OrdersHistory";
+import SpicificOrderTable from "./components/Profile/OrderHistory/SpicificOrderTable";
 
 class App extends Component {
   componentDidMount() {
@@ -31,9 +33,12 @@ class App extends Component {
           <Route path="/products/detail/:productID" component={ProductDetail} />
           <Route path="/register" component={Register} />
           <Route path="/login" component={Login} />
+          <Route path="/profile/history/order" component={SpicificOrderTable} />
+          <Route path="/profile/history" component={OrdersHistory} />
           <Route path="/profile" component={Profile} />
           <Route path="/products/:category?" component={ProductList} />
           <Route path="/cart" component={CartPage} />
+
           <Redirect to="/home" />
         </Switch>
       </div>
