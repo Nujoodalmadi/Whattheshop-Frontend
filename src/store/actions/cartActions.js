@@ -27,6 +27,11 @@ export const emptyCart = () => ({
   type: actionTypes.EMPTY_CART
 });
 
+
+export const emptyCart = () => ({
+  type: actionTypes.EMPTY_CART
+});
+
 export const createOrder = orders => {
   return async dispatch => {
     try {
@@ -41,4 +46,4 @@ export const createOrder = orders => {
       console.error("Something went wrong with create order ", error);
     }
   };
-};
+
