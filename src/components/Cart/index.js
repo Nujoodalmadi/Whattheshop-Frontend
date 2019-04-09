@@ -15,7 +15,8 @@ class CartPage extends Component {
   };
   handleClick = async orders => {
     await this.props.createOrder(orders);
-    if (this.props.response === true) {
+    if (this.props.response[0] === true) {
+      this.setState({ res: false });
       this.props.emptyCart();
     } else {
       this.setState({ res: true });
