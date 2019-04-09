@@ -22,10 +22,10 @@ export const EMPTY_CART = "EMPTY_CART";
 
 export const CREATE_ORDER = "CREATE_ORDER";
 
-
 //Orders History
 export const FETCH_ORDERS_HISTORY = "FETCH_ORDERS_HISTORY";
-
+export const REFRESH_CURRENT_ORDER = "REFRESH_CURRENT_ORDER";
+export const RESET_HISTORY = "RESET_HISTORY";
 
 // Profile
 // fetching a profile based on the logged in user

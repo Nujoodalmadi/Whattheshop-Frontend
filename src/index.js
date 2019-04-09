@@ -11,8 +11,9 @@ import App from "./App";
 
 // Store
 import store from "./store";
-
+import * as actionCreators from "./store/actions";
 import * as serviceWorker from "./serviceWorker";
+store.dispatch(actionCreators.checkForExpiredToken());
 
 ReactDOM.render(
   <Provider store={store}>

@@ -13,10 +13,12 @@ export {
   addCart,
   deleteCartItem,
   removeItemFromCart,
-  cartUpdate,
-  emptyCart
+  emptyCart,
   createOrder
-
 } from "./cartActions";
 
-export { fetchOrdersHistory } from "./historyActions";
+export {
+  fetchOrdersHistory,
+  refreshHistory,
+  resetHistory
+} from "./historyActions";

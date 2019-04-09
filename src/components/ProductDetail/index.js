@@ -9,7 +9,7 @@ class ProductDetail extends Component {
   state = {
     quantity: 1
   };
-  componentDidUpdate(prevProps) {
+  componentDidUpdate() {
     this.props.refreshProduct(this.props.match.params.productID);
   }
 

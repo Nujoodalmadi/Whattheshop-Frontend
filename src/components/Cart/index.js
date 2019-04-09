@@ -10,12 +10,6 @@ import CartRow from "./CartRow";
 import * as actionCreators from "../../store/actions";
 
 class CartPage extends Component {
-  // componentDidUpdate(prevProps) {
-  //   console.log(prevProps.cart.map(item => item.quantity));
-  //   console.log(this.props.cart.map(item => item.quantity));
-
-  // }
-
   render() {
     let orders = [
       {
