@@ -10,6 +10,7 @@ import CartRow from "./CartRow";
 import * as actionCreators from "../../store/actions";
 
 class CartPage extends Component {
+
   state = {
     res: false
   };
@@ -22,6 +23,7 @@ class CartPage extends Component {
       this.setState({ res: true });
     }
   };
+
 
   render() {
     const cartRow = this.props.cart.map(item => (

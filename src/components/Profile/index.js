@@ -1,27 +1,46 @@
 import React, { Component } from "react";
-import * as actionCreators from "../../store/actions";
+import * as actionCreators from "../../store/actions/index";
+import { Link } from "react-router-dom";
+
 import { connect } from "react-redux";
 
 class index extends Component {
-  componentDidMount() {
-    // this.props.fetchOrders();
-  }
 
   render() {
-    // const orders = this.props.orders;
-    // console.log("TCL: index -> render -> orders", orders);
-    return <div />;
+    return (
+      <div>
+        <Link to="/profile/history">
+          <button
+            onClick={() =>
+              this.props.fetchOrdersHistory(this.props.user.user_id)
+            }
+          >
+            view history
+          </button>
+        </Link>
+      </div>
+    );
+
   }
 }
 
 const mapStateToProps = state => ({
-  // orders: state.products.orders
+
+  user: state.authReducer.user
 });
 
 const mapDispatchToProps = dispatch => ({
-  // fetchOrders: () => dispatch(actionCreators.fetchOrders())
+  fetchOrdersHistory: userID =>
+    dispatch(actionCreators.fetchOrdersHistory(userID))
+
+  // orders: state.products.orders
 });
+
+
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(index);
+
+

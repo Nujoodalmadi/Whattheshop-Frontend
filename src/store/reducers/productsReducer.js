@@ -5,7 +5,6 @@ const initialState = {
   products: [],
   currentProduct: null,
   categories: []
-  // orders: []
 };
 
 const reducer = (state = initialState, action) => {
