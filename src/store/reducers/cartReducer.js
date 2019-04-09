@@ -3,7 +3,7 @@ import * as actionTypes from "../actions/actionTypes";
 // this cart recieves product objects {quantity, name, image}
 const initialState = {
   cart: [],
-  response: false
+  response: []
 };
 
 const cart = (state = initialState, action) => {

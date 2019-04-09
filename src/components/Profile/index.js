@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 class index extends Component {
+
   render() {
     return (
       <div>
@@ -19,21 +20,27 @@ class index extends Component {
         </Link>
       </div>
     );
+
   }
 }
 
 const mapStateToProps = state => ({
+
   user: state.authReducer.user
 });
 
 const mapDispatchToProps = dispatch => ({
   fetchOrdersHistory: userID =>
     dispatch(actionCreators.fetchOrdersHistory(userID))
+
+  // orders: state.products.orders
 });
+
+
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(index);
 
-//action that fetches and redirects..
+

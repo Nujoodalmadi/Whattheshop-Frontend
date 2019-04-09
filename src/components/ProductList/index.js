@@ -9,6 +9,7 @@ class ProductList extends Component {
   render() {
     let categoryName = this.props.match.params.category;
 
+
     let productCards = [];
     if (categoryName) {
       let products = this.props.products;
