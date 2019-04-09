@@ -12,7 +12,6 @@ class CartRow extends Component {
     const Itemquantity = this.props.cart.find(
       item => item.product.id === this.props.item.product.id
     );
-    console.log(Itemquantity);
     return (
       <ListGroupItem>
         <ListGroup.Item className="d-flex flex-row align-items-center">
@@ -22,34 +21,27 @@ class CartRow extends Component {
             width="100"
             alt="Avatar"
           />
-          <div
-            className="p-2 col-4"
-            style={{ fontSize: "15px", padding: "20px" }}
-          >
+          <div className="p-2 col-4" id="cart-row ">
             {this.props.item.product.name}
           </div>
-          <div className="p-2 col-3" style={{ fontSize: "13px" }}>
+          <div className="p-2 col-3 row-item">
             {this.props.item.product.price}
           </div>
-          <div className="p-2 col-2" style={{ fontSize: "13px" }}>
-            {Itemquantity.quantity}
-          </div>
-          <div className="p-2" style={{ fontSize: "13px" }}>
+          <div className="p-2 col-2 row-item">{Itemquantity.quantity}</div>
+          <div className="p-2 row-item">
             {this.props.item.quantity * this.props.item.product.price}
           </div>
 
           <i
             onClick={this.handleDecrease}
-            className="ml-auto p-2 far fa-trash-alt"
-            style={{ color: "rgb(155, 166, 87)", position: "relative" }}
+            className="ml-auto p-2 far fa-trash-alt relative brandcolor"
           />
 
           <i
             onClick={() =>
               this.props.removeFromCart(this.props.item.product.id)
             }
-            className="ml-auto p-2 fas fa-minus"
-            style={{ color: "rgb(155, 166, 87)", position: "relative" }}
+            className="ml-auto p-2 fas fa-minus relative brandcolor"
           />
         </ListGroup.Item>
       </ListGroupItem>

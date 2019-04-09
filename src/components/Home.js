@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { Card, Button } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 // Images
-import homeimage from "../images/saudihomepage.png";
+import homeimage from "../assets/images/saudihomepage.png";
 
 class Home extends Component {
   render() {

@@ -17,7 +17,7 @@ class ProductCard extends Component {
 
     return (
       <div className="card mx-3" onClick={() => this.props.getProduct(product)}>
-        <div className="card border-light mb-3" style={{ maxWidth: "18rem" }}>
+        <div className="card border-light mb-3" id="card-border">
           <Link to={`/products/detail/${product.id}`}>
             <img
               src={product.images[0].image}
@@ -26,44 +26,32 @@ class ProductCard extends Component {
             />
           </Link>
           <div className="card-body">
-            <Link
-              to={`/products/detail/${product.id}`}
-              style={{ color: "rgb(155, 166, 87)" }}
-            >
+            <Link className="brandcolor" to={`/products/detail/${product.id}`}>
               <h5 className="card-title">{product.name}</h5>
             </Link>
             <div className="card-text">
-              Price: {product.price} SAR
+              {product.price} SAR
               <footer className="blockquote-footer">
                 {product.stock > 0 ? (
-                  <div style={{ color: "green" }}>In Stock</div>
+                  <div className="in-stock">In Stock</div>
                 ) : (
-                  <div style={{ color: "red" }}>Out of Stock</div>
+                  <div className="out-stock">Out of Stock</div>
                 )}
-              </footer>
-              <div className=" flex-row align-items-center" align="center">
                 <button
                   onClick={this.handleAddClick}
                   className=" flex-row align-items-center"
                   align="center"
-                  style={{
-                    backgroundColor: "rgb(155, 166, 87)",
-                    borderRadius: "50px",
-                    width: "35px",
-                    textAlign: "center",
-                    color: "white",
-                    border: "8px",
-                    borderColor: "white"
-                  }}
+                  id="add-cart"
                 >
                   <i
                     className=" fas fa-plus"
                     style={{
-                      color: "white"
+                      color: "rgb(155, 166, 87)"
                     }}
                   />
                 </button>
-              </div>
+              </footer>
+              <div className=" flex-row align-items-center" align="center" />
             </div>
           </div>
         </div>

@@ -62,30 +62,22 @@ class index extends Component {
       <div>
         <Navbar color="light" light expand="md">
           <NavbarBrand>
-            <NavLink
-              style={{
-                fontFamily: "Helvetica Neue",
-                color: "#778899",
-                fontSize: "25px"
-              }}
-              to="/home"
-            >
+            <NavLink id="navbrand" to="/home">
               Saudi Tea Shop
             </NavLink>
           </NavbarBrand>
-          <i className="fas fa-leaf" style={{ color: "rgb(155, 166, 87)" }} />
+          <i className="fas fa-leaf brandcolor" />
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="d-flex flex-row" navbar>
               <div className="dropdown ml-2">
                 <button
-                  className="btn btn-light dropdown-toggle"
+                  className="btn btn-light dropdown-toggle brandcolor"
                   type="button"
                   id="dropdownMenuButton"
                   data-toggle="dropdown"
                   aria-haspopup="true"
                   aria-expanded="false"
-                  style={{ color: "rgb(155, 166, 87)" }}
                 >
                   {this.state.category
                     ? this.state.category
@@ -109,11 +101,8 @@ class index extends Component {
             <Nav className="navbar-nav ml-auto" navbar>
               <NavItem className="ml-auto p-2">
                 <NavLink to="/cart">
-                  <i
-                    className="fas fa-shopping-cart p-2 mt-1"
-                    style={{ color: "rgb(155, 166, 87)" }}
-                  />
-                  <span style={{ color: "rgb(205,92,92)" }}>
+                  <i className="fas fa-shopping-cart p-2 mt-1 brandcolor" />
+                  <span className="brandcolor">
                     {mapTotal.reduce((accumulator, currentValue) => {
                       return accumulator + currentValue;
                     }, 0)}
@@ -124,10 +113,7 @@ class index extends Component {
               {this.props.user ? (
                 <UncontrolledDropdown nav inNavbar>
                   <DropdownToggle nav caret>
-                    <i
-                      className="far fa-user p-2 mt-1"
-                      style={{ color: "rgb(155, 166, 87)" }}
-                    />
+                    <i className="far fa-user p-2 mt-1 brandcolor" />
                   </DropdownToggle>
                   <DropdownMenu right>
                     <DropdownItem>
