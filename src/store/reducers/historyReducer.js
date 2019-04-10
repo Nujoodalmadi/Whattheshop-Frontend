@@ -9,11 +9,9 @@ const initialState = {
 const historyReducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.FETCH_ORDERS_HISTORY:
-
       const currentUsersHistory = action.payload.filter(
         order => order.user === action.user
       );
-
 
       return {
         ...state,
@@ -23,7 +21,6 @@ const historyReducer = (state = initialState, action) => {
       let newOrder = state.history.find(order => {
         return order.id === +action.payload;
       });
-      console.log(newOrder);
       return {
         ...state,
         currentOrder: newOrder

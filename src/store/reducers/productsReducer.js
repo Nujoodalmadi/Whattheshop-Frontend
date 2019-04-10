@@ -19,11 +19,6 @@ const reducer = (state = initialState, action) => {
         ...state,
         categories: action.payload
       };
-    // case actionTypes.FETCH_ORDERS:
-    //   return {
-    //     ...state,
-    //     orders: action.payload
-    //   };
     case actionTypes.SET_CURRENT_PRODUCT:
       return {
         ...state,

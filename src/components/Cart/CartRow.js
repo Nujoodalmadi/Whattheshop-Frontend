@@ -12,7 +12,6 @@ class CartRow extends Component {
     const Itemquantity = this.props.cart.find(
       item => item.product.id === this.props.item.product.id
     );
-    console.log(Itemquantity);
     return (
       <ListGroupItem>
         <ListGroup.Item className="d-flex flex-row align-items-center">

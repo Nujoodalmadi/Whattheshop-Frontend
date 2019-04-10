@@ -10,19 +10,17 @@ import CartRow from "./CartRow";
 import * as actionCreators from "../../store/actions";
 
 class CartPage extends Component {
-
   state = {
     res: false
   };
   handleClick = async orders => {
     await this.props.createOrder(orders);
-    if (this.props.response === true) {
+    if (this.props.response[0] === true) {
       this.props.emptyCart();
     } else {
       this.setState({ res: true });
     }
   };
-
 
   render() {
     const cartRow = this.props.cart.map(item => (

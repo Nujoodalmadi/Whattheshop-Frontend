@@ -37,7 +37,6 @@ export const checkForExpiredToken = () => {
 };
 
 export const login = (userData, history) => {
-  console.log(userData);
   return async dispatch => {
     try {
       let response = await axios.post(
