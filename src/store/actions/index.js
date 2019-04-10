@@ -22,3 +22,5 @@ export {
   refreshHistory,
   resetHistory
 } from "./historyActions";
+
+export { fetchProfile, updateProfile, emptyProfile } from "./profileActions";

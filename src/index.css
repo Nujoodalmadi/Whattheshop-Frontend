@@ -13,7 +13,7 @@ code {
     monospace;
 }
 
-.card-img-top {
+#top {
   width: 100%;
   height: 350px;
   object-fit: cover;
@@ -26,4 +26,16 @@ code {
 
 .card {
   margin-bottom: 40px;
+}
+
+.try {
+  margin-left: 25em;
+  margin-top: 5em;
+}
+
+.tea {
+  width: 100px;
+  height: 100px;
+  margin-top: 0.5em;
+  margin-left: 1.5em;
 }

@@ -17,13 +17,17 @@ import ProductDetail from "./components/ProductDetail";
 import CartPage from "./components/Cart";
 import OrdersHistory from "./components/Profile/OrderHistory/OrdersHistory";
 import SpicificOrderTable from "./components/Profile/OrderHistory/SpicificOrderTable";
-
+import ProfileUpdate from "./components/updateProfile";
 class App extends Component {
   componentDidMount() {
     this.props.fetchProducts();
     this.props.checkForToken();
   }
-
+  componentDidUpdate() {
+    if (this.props.user) {
+      this.props.fetchProfile();
+    }
+  }
   render() {
     return (
       <div className="content-wrapper">
@@ -40,6 +44,7 @@ class App extends Component {
           />
           <Route path="/profile/history" component={OrdersHistory} />
           <Route path="/profile" component={Profile} />
+          <Route path="/update" component={ProfileUpdate} />
           <Route path="/products/:category?" component={ProductList} />
           <Route path="/cart" component={CartPage} />
 
@@ -50,13 +55,19 @@ class App extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    user: state.authReducer.user
+  };
+};
 const mapDispatchToProps = dispatch => {
   return {
     fetchProducts: () => dispatch(actionCreators.fetchProducts()),
-    checkForToken: () => dispatch(actionCreators.checkForExpiredToken())
+    checkForToken: () => dispatch(actionCreators.checkForExpiredToken()),
+    fetchProfile: () => dispatch(actionCreators.fetchProfile())
   };
 };
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(App);
