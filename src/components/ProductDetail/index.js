@@ -131,7 +131,7 @@ class ProductDetail extends Component {
                   {product.name}
                 </h5>
                 <div className="card-text">
-                  <p>Price: {product.price}</p>
+                  <p>{product.price} SAR</p>
                   <small className="text-muted">{product.description}</small>
                   <footer className="blockquote-footer">
                     {product.stock > 0 ? (
