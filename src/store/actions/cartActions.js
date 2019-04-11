@@ -31,10 +31,11 @@ export const createOrder = orders => {
   return async dispatch => {
     try {
       const res = await instance.post("/api/create/", orders);
-      const response = res.data["response"];
+      const response = res.data;
       dispatch({
         type: actionTypes.CREATE_ORDER,
-        payload: response
+        payload: response["response"],
+        link: response["link"]
       });
     } catch (error) {
       console.error("Something went wrong with create order ", error);

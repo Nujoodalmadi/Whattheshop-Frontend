@@ -139,7 +139,6 @@ class ProductDetail extends Component {
                     ) : (
                       <div style={{ color: "red" }}>Out of Stock</div>
                     )}
-                    <small className="text-muted">{product.stock}</small>
                   </footer>
                 </div>
 

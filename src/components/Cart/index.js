@@ -14,11 +14,17 @@ class CartPage extends Component {
     res: false
   };
   handleClick = async orders => {
-    await this.props.createOrder(orders);
-    if (this.props.response[0] === true) {
-      this.props.emptyCart();
+    if (this.props.user) {
+      await this.props.createOrder(orders);
+      if (this.props.response[0] === true) {
+        this.props.emptyCart();
+        this.setState({ res: true });
+        return window.location.assign(this.props.link);
+      } else {
+        this.setState({ res: true });
+      }
     } else {
-      this.setState({ res: true });
+      return this.props.history.push("/login");
     }
   };
 
@@ -95,7 +101,9 @@ class CartPage extends Component {
 const mapStateToProps = state => {
   return {
     cart: state.cartReducer.cart,
-    response: state.cartReducer.response
+    response: state.cartReducer.response,
+    link: state.cartReducer.link,
+    user: state.authReducer.user
   };
 };
 
