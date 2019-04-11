@@ -18,7 +18,7 @@ class CartPage extends Component {
       await this.props.createOrder(orders);
       if (this.props.response[0] === true) {
         this.props.emptyCart();
-        this.setState({ res: true });
+        this.setState({ res: false });
         return window.location.assign(this.props.link);
       } else {
         this.setState({ res: true });

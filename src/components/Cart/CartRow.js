@@ -16,7 +16,7 @@ class CartRow extends Component {
       <ListGroupItem>
         <ListGroup.Item className="d-flex flex-row align-items-center">
           <img
-            src="https://pbs.twimg.com/profile_images/555038545446846464/ckLeRnHU.jpeg"
+            src={this.props.item.product.images[0].image}
             height="100"
             width="100"
             alt="Avatar"
