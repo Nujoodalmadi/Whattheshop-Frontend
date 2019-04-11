@@ -51,11 +51,7 @@ class CartPage extends Component {
             </ul>
           </div>
         )}
-        <div
-          className=" justify-content-center mt-5"
-          align="center"
-          style={{ minWidth: "1200px" }}
-        >
+        <div className=" justify-content-center mt-5" align="center">
           <Card className="w-75">
             <Card.Body style={{ textAlign: "center", height: "75px" }}>
               <Card.Title className="text-muted" style={{ fontSize: "25px" }}>
