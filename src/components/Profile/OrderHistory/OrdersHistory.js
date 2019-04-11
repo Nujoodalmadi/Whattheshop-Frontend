@@ -4,6 +4,7 @@ import { Card, ListGroup } from "react-bootstrap";
 import { connect } from "react-redux";
 import OrderTableRow from "../OrderHistory/OrderTableRow";
 import * as actionCreators from "../../../store/actions/index";
+import { Link } from "react-router-dom";
 
 // Components
 // import CartRow from "./CartRow";
@@ -43,6 +44,14 @@ class OrdersHistory extends Component {
               {historyRow}
               <div className="p-2 d-flex" />
             </ListGroup>
+            <Link to="/profile">
+              <button
+                className="btn btn-light "
+                style={{ color: "grey", margin: "10px" }}
+              >
+                Back to Profile
+              </button>
+            </Link>
           </Card>
         </div>
       );

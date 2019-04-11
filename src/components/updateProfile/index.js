@@ -13,7 +13,7 @@ class UpdateProfile extends Component {
     zip_code: 0
   };
   componentDidMount() {
-    this.props.profile.user && this.props.fetchProfile();
+    // this.props.profile.user && this.props.fetchProfile();
     this.props.profile &&
       this.setState({
         user: {
@@ -40,6 +40,7 @@ class UpdateProfile extends Component {
         zip_code: this.props.profile.zip_code
       });
     }
+    this.props.profile.user && this.props.fetchProfile();
   }
 
   handleChange = event => {
@@ -136,6 +137,7 @@ class UpdateProfile extends Component {
           >
             Update
           </button>
+
           <Link to="/profile">
             <button
               className="btn btn-light "
