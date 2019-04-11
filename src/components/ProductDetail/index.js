@@ -65,7 +65,8 @@ class ProductDetail extends Component {
                         data-target="#exampleModalCenter"
                         style={{
                           height: "350px",
-                          width: "400px"
+                          width: "400px",
+                          borderColor: "transparent"
                         }}
                       />
 
@@ -78,7 +79,11 @@ class ProductDetail extends Component {
                         alt={product.name}
                         data-toggle="modal"
                         data-target="#exampleModalCenter"
-                        style={{ height: "350px", width: "400px" }}
+                        style={{
+                          height: "350px",
+                          width: "400px",
+                          borderColor: "transparent"
+                        }}
                       />
 
                       <div className="carousel-caption d-none d-md-block" />
@@ -90,7 +95,11 @@ class ProductDetail extends Component {
                         alt={product.name}
                         data-toggle="modal"
                         data-target="#exampleModalCenter"
-                        style={{ height: "350px", width: "400px" }}
+                        style={{
+                          height: "350px",
+                          width: "400px",
+                          borderColor: "transparent"
+                        }}
                       />
                       <div className="carousel-caption d-none d-md-block" />
                     </div>
